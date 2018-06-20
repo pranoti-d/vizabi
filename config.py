@@ -4,5 +4,5 @@
 # In[ ]:
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'DATABASE_URL'
 
