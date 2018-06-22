@@ -9,7 +9,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://jnlvmsknzpwzhn:4c833c22f02531350c227cf49d5d823a5cf7f0d5fd03029228623fd35bf12be9@ec2-107-21-255-2.compute-1.amazonaws.com:5432/del813fhfj7fn9'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://b16cd827bfe049:3d8f28a1@us-cdbr-iron-east-04.cleardb.net/heroku_dee190ce44d3e70'
 
 db = SQLAlchemy(app)
 
