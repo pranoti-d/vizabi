@@ -1,14 +1,25 @@
-from flask import Flask
+from flask import Flask, render_template
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_mysqldb import MySQL
 from flask_migrate import Migrate
+from dash import Dash
+from dash.dependencies import Input, State, Output
+import dash_core_components as dcc
+import dash_html_components as html
 
-app = Flask(__name__)
-#server = flask.Flask(__name__)
+import json
+import plotly
+import pandas as pd
+import numpy as np
+
+
+#app = Flask(__name__)
+server = flask.Flask(__name__)
 #app = dash.Dash(__name__, server=server)
-app.config.from_object(Config)
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+#app.config.from_object(Config)
+server.config.from_object(Config)
+db = SQLAlchemy(server)
+migrate = Migrate(server, db)
 
 from app import routes, models
