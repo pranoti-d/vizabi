@@ -69,7 +69,7 @@ def create_layout(x_axis,y_axis) :
 # app.config.supress_callback_exceptions=True
 
 
-app = dash.Dash(__name__, static_folder='assets')
+app = dash.Dash(__name__, server=server, static_folder='assets')
 
 app.css.append_css({'external_url':
 #                 'https://cdn.rawgit.com/gschivley/8040fc3c7e11d2a4e7f0589ffc829a02/raw/fe763af6be3fc79eca341b04cd641124de6f6f0d/dash.css'
