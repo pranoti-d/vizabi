@@ -25,6 +25,14 @@ server.config.from_object(Config)
 db = SQLAlchemy(server)
 migrate = Migrate(server, db)
 
+cursor.execute("SELECT * from User where Username='" + username + "' and Password='" + password + "'")
+    data = cursor.fetchone()
+    if data is None:
+     return "Username or Password is wrong"
+    else:
+     return "Logged in successfully"
+
+
 # In[2]:
 
 
