@@ -24,8 +24,8 @@ app = dash.Dash(__name__, server=server, static_folder='assets')
 server.config.from_object(Config)
 db = SQLAlchemy(server)
 migrate = Migrate(server, db)
-
-cursor.execute("SELECT * from User where Username='" + username + "' and Password='" + password + "'")
+cursor = db.cursor()
+cursor.execute("SELECT * from test_data_dummy_data")
     data = cursor.fetchone()
     if data is None:
      return "Username or Password is wrong"
