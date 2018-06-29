@@ -1,6 +1,6 @@
 from app import server
 from app import app
-from app.models import User
+from app.models import test_data_dummy_data
 
 import dash
 import dash
@@ -25,12 +25,12 @@ app = dash.Dash(__name__, server=server, static_folder='assets')
 server.config.from_object(Config)
 db = SQLAlchemy(server)
 migrate = Migrate(server, db)
-user = db.session.query(User).all()
+data = db.session.query(test_data_dummy_data).all()
 #cursor = db.connect()
 #cursor.execute("SELECT * from test_data_dummy_data")
 #data = cursor.fetchone()
 
-u = User(username='john', email='john@example.com')
+#u = User(username='john', email='john@example.com')
 
 # In[2]:
 
