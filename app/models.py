@@ -3,23 +3,30 @@ from app import db
 
 
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(64), index=True, unique=True)
-    email = db.Column(db.String(120), index=True, unique=True)
-    password_hash = db.Column(db.String(128))
-    posts = db.relationship('Post', backref='author', lazy='dynamic')
+    Year = db.Column(db.Integer,index=True)
+    Metric	= db.Column(db.Double, index=True, unique=True)
+    ANDHRA_PRADESH = db.Column(db.Double)	
+    BIHAR = db.Column(db.Double)		
+    CHHATTISGARH = db.Column(db.Double)		
+    GUJARAT = db.Column(db.Double)		
+    HARYANA	= db.Column(db.Double)	
+    HIMACHAL_PRADESH = db.Column(db.Double)		
+    JHARKHAND = db.Column(db.Double)		
+    KARNATAKA = db.Column(db.Double)		
+    KERALA = db.Column(db.Double)		
+    MADHYA_PRADESH	= db.Column(db.Double)
+    MAHARASHTRA	= db.Column(db.Double)
+    ORISSA	= db.Column(db.Double)
+    PUNJAB	= db.Column(db.Double)
+    RAJASTHAN = db.Column(db.Double)	
+    TAMIL_NADU	= db.Column(db.Double)
+    TELANGANA = db.Column(db.Double)	
+    UTTAR_PRADESH = db.Column(db.Double)	
+    WEST_BENGAL	= db.Column(db.Double)
+    ALL_INDIA = db.Column(db.Double)
 
     def __repr__(self):
-        return '<User {}>'.format(self.username)
+        return '<User {}>'.format(self.Metric)
 
-
-class Post(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.String(140))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
-    def __repr__(self):
-        return '<Post {}>'.format(self.body)
     
 
