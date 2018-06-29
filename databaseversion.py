@@ -11,7 +11,14 @@ from bisect import bisect_left
 from datetime import datetime
 from copy import deepcopy
 import plotly.graph_objs as go
+from flask import Flask, render_template
+from config import Config
+from flask_sqlalchemy import SQLAlchemy
+from flask_mysqldb import MySQL
+from flask_migrate import Migrate
 
+server = Flask(__name__)
+app = Dash(__name__, server=server) #Another Bash Graph inline, no callbacks.
 
 
 # In[2]:
@@ -69,7 +76,7 @@ def create_layout(x_axis,y_axis) :
 # app.config.supress_callback_exceptions=True
 
 
-app = dash.Dash(__name__, server=server, static_folder='assets')
+#app = dash.Dash(__name__, server=server, static_folder='assets')
 
 app.css.append_css({'external_url':
 #                 'https://cdn.rawgit.com/gschivley/8040fc3c7e11d2a4e7f0589ffc829a02/raw/fe763af6be3fc79eca341b04cd641124de6f6f0d/dash.css'
