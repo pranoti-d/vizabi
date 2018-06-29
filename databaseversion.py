@@ -27,11 +27,6 @@ migrate = Migrate(server, db)
 cursor = db.cursor()
 cursor.execute("SELECT * from test_data_dummy_data")
 data = cursor.fetchone()
-if data is None:
-    return "Username or Password is wrong"
-else:
-    return "Logged in successfully"
-
 
 # In[2]:
 
