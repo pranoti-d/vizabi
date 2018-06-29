@@ -29,6 +29,8 @@ migrate = Migrate(server, db)
 #cursor.execute("SELECT * from test_data_dummy_data")
 #data = cursor.fetchone()
 
+u = User(username='john', email='john@example.com')
+
 # In[2]:
 
 
