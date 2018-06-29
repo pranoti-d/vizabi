@@ -2,7 +2,7 @@ from datetime import datetime
 from app import db
 
 
-class User(db.Model):
+class test_data_dummy_data(db.Model):
     Year = db.Column(db.Integer,index=True,primary_key=True)
     Metric = db.Column(db.Float, index=True)
     ANDHRA_PRADESH = db.Column(db.Float)	
@@ -26,7 +26,7 @@ class User(db.Model):
     ALL_INDIA = db.Column(db.Float)
 
     def __repr__(self):
-        return '<User {}>'.format(self.Metric)
+        return '<test_data_dummy_data {}>'.format(self.Metric)
 
     
 
