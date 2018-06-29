@@ -4,7 +4,7 @@ from app import db
 
 class User(db.Model):
     Year = db.Column(db.Integer,index=True)
-    Metric	= db.Column(db.Double, index=True, unique=True)
+    Metric = db.Column(db.Double, index=True)
     ANDHRA_PRADESH = db.Column(db.Double)	
     BIHAR = db.Column(db.Double)		
     CHHATTISGARH = db.Column(db.Double)		
