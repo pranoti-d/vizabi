@@ -3,7 +3,7 @@ from app import db
 
 
 class User(db.Model):
-    Year = db.Column(db.Integer,index=True)
+    Year = db.Column(db.Integer,index=True,primary_key=True)
     Metric = db.Column(db.Float, index=True)
     ANDHRA_PRADESH = db.Column(db.Float)	
     BIHAR = db.Column(db.Float)		
