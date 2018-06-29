@@ -1,5 +1,6 @@
 from app import server
 from app import app
+from app.models import User
 
 import dash
 import dash
@@ -24,9 +25,9 @@ app = dash.Dash(__name__, server=server, static_folder='assets')
 server.config.from_object(Config)
 db = SQLAlchemy(server)
 migrate = Migrate(server, db)
-cursor = db.cursor()
-cursor.execute("SELECT * from test_data_dummy_data")
-data = cursor.fetchone()
+#cursor = db.cursor()
+#cursor.execute("SELECT * from test_data_dummy_data")
+#data = cursor.fetchone()
 
 # In[2]:
 
