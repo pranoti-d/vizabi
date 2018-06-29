@@ -18,7 +18,7 @@ from flask_mysqldb import MySQL
 from flask_migrate import Migrate
 
 server = Flask(__name__)
-app = Dash(__name__, server=server) #Another Bash Graph inline, no callbacks.
+app = dash.Dash(__name__, server=server, static_folder='assets')
 
 
 # In[2]:
