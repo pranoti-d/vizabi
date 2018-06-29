@@ -25,7 +25,7 @@ app = dash.Dash(__name__, server=server, static_folder='assets')
 server.config.from_object(Config)
 db = SQLAlchemy(server)
 migrate = Migrate(server, db)
-#cursor = db.cursor()
+cursor = db.connect()
 #cursor.execute("SELECT * from test_data_dummy_data")
 #data = cursor.fetchone()
 
