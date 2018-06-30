@@ -35,7 +35,7 @@ data = db.session.query(test_data_dummy_data).all()
 # In[2]:
 
 
-file = pd.read_csv( "Test Data_Dummy Data.csv", encoding = "ISO-8859-1")
+file = pd.read_csv( "Test_Data_Dummy_Data.csv", encoding = "ISO-8859-1")
 file.iloc[:,2:20] = file.iloc[:,2:20].apply(lambda x : round(x, 2))
 
 
