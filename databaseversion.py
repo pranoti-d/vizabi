@@ -50,7 +50,7 @@ def select_chart(x_axis,y_axis,chart_type) :
     
 def create_trace(data_chart,x_axis,y_axis,chart_type) :    
     dataPanda = []
-    for i in data_chart.iloc[:,2:20].columns.unique():
+    for i in data_chart.iloc[:,9:27].columns.unique():
         trace = go.Scatter(
                     x=data_chart[data_chart['Metric'] == x_axis][i],
                     y=data_chart[data_chart['Metric'] == y_axis][i],
