@@ -119,6 +119,24 @@ app.layout = html.Div([
          className='row'
         ),
     
+    # Select visualization
+    
+     html.Div(
+        [
+             html.Label('Multi-Select Dropdown'),
+                 dcc.Dropdown(
+                    options=[
+                        {'label': 'New York City', 'value': 'NYC'},
+                        {'label': u'Montréal', 'value': 'MTL'},
+                        {'label': 'San Francisco', 'value': 'SF'}
+                            ],
+                     value=['MTL', 'SF'],
+                     multi=True
+                             ),
+         ], 
+         className='row'
+        ),
+    
     # selectors
    html.Div(
         [ 
