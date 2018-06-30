@@ -4,7 +4,7 @@ from app import db
 
 class test_data_dummy_data(db.Model):
     Year = db.Column(db.Integer,index=True,primary_key=True)
-    Metric = db.Column(db.Float, index=True)
+    Metric = db.Column(db.String(120), index=True)
     ANDHRA_PRADESH = db.Column(db.Float)	
     BIHAR = db.Column(db.Float)		
     CHHATTISGARH = db.Column(db.Float)		
