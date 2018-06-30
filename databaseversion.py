@@ -123,12 +123,12 @@ app.layout = html.Div([
     
      html.Div(
         [
-             html.Label('Multi-Select Dropdown'),
+             html.Label('What would you like to visualize?'),
                  dcc.Dropdown(
                     options=[
-                        {'label': 'New York City', 'value': 'NYC'},
-                        {'label': u'Montréal', 'value': 'MTL'},
-                        {'label': 'San Francisco', 'value': 'SF'}
+                        {'label': 'Economy', 'value': 'NYC'},
+                        {'label': 'Banking', 'value': 'MTL'},
+                        {'label': 'States', 'value': 'SF'}
                             ],
                      value=['MTL', 'SF'],
                      multi=True
