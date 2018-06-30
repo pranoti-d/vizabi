@@ -4,7 +4,13 @@ from app import db
 
 class test_data_dummy_data(db.Model):
     Year = db.Column(db.Integer,index=True,primary_key=True)
+    Month = db.Column(db.Integer,index=True)
+    Week = db.Column(db.String(120),index=True)
+    Date = db.Column(db.Date,index=True)
+    Datetime = db.Column(db.String(120))
+    Category = db.Column(db.String(120))
     Metric = db.Column(db.String(120), index=True)
+    Units = db.Column(db.String(120))
     ANDHRA_PRADESH = db.Column(db.Float)	
     BIHAR = db.Column(db.Float)		
     CHHATTISGARH = db.Column(db.Float)		
