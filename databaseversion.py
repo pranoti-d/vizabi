@@ -145,7 +145,8 @@ app.layout = html.Div([
             html.P('Choose x-axis:'), 
             dcc.Dropdown(
                     id='x_axis',
-                    options=[{'label': 'Real GDP Growth', 'value': 'Real GDP Growth'},
+                    options=[{'label': 'Date', 'value': 'Date'}, 
+                             {'label': 'Real GDP Growth', 'value': 'Real GDP Growth'},
                              {'label': 'Per capita GDP', 'value': 'Per capita GDP'},
                              {'label': 'Population', 'value': 'Population'}],              
                     value='Per capita GDP'
