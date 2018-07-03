@@ -141,7 +141,7 @@ def create_layout(x_axis,y_axis) :
                # autosize=False,
                # width=1000,
                 height=700,
-                xaxis = dict(type = 'log', title= x_axis),
+                xaxis = dict(title= x_axis),
                 yaxis=dict(title=y_axis),
                 legend=dict(orientation="h"),
                 hovermode='closest'
