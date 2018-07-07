@@ -157,6 +157,12 @@ def create_layout(x_axis,y_axis) :
 
 #app = dash.Dash(__name__, server=server, static_folder='assets')
 
+#Define x and y axis options
+
+x_axis_list = file['Metric'].unique().tolist()
+y_axis_list = file['Metric'].unique().tolist()
+x_axis_list.append('Date')
+
 
 app.css.append_css({'external_url':
 #                 'https://cdn.rawgit.com/gschivley/8040fc3c7e11d2a4e7f0589ffc829a02/raw/fe763af6be3fc79eca341b04cd641124de6f6f0d/dash.css'
@@ -213,10 +219,7 @@ app.layout = html.Div([
             html.P('Choose x-axis:'), 
             dcc.Dropdown(
                     id='x_axis',
-                    options=[{'label': 'Date', 'value': 'Date'}, 
-                             {'label': 'Real GDP Growth', 'value': 'Real GDP Growth'},
-                             {'label': 'Per capita GDP', 'value': 'Per capita GDP'},
-                             {'label': 'Population', 'value': 'Population'}],              
+                    options=[{'label': k, 'value': k} for k in x_axis_list],               
                     value='Date'
                         )
             ],
@@ -229,10 +232,8 @@ app.layout = html.Div([
             html.P('Choose y-axis:'), 
             dcc.Dropdown(
                     id='y_axis',
-                    options=[{'label': 'Real GDP Growth', 'value': 'Real GDP Growth'},
-                             {'label': 'Per capita GDP', 'value': 'Per capita GDP'},
-                             {'label': 'Population', 'value': 'Population'}],              
-                    value='Population'
+                    options=[{'label': k, 'value': k} for k in y_axis_list],               
+                    value='Scheduled Commercial  Bank Offices'
                         )
             ],
            className='four columns',
