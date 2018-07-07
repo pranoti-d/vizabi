@@ -23,14 +23,10 @@ app = dash.Dash(__name__, server=server, static_folder='assets')
 
 
 server.config.from_object(Config)
-db = SQLAlchemy(server)
-migrate = Migrate(server, db)
-data = db.session.query(test_data_dummy_data).all()
-#cursor = db.connect()
-#cursor.execute("SELECT * from test_data_dummy_data")
-#data = cursor.fetchone()
+#db = SQLAlchemy(server)
+#migrate = Migrate(server, db)
+#data = db.session.query(test_data_dummy_data).all()
 
-#u = User(username='john', email='john@example.com')
 
 # In[2]:
 
