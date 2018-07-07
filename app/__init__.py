@@ -20,7 +20,7 @@ server = Flask(__name__)
 #app = dash.Dash(__name__, server=server)
 #app.config.from_object(Config)
 server.config.from_object(Config)
-db = SQLAlchemy(server)
-migrate = Migrate(server, db)
+#db = SQLAlchemy(server)
+#migrate = Migrate(server, db)
 
 from app import routes, models
