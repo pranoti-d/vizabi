@@ -32,7 +32,7 @@ server.config.from_object(Config)
 
 
 file = pd.read_csv( "Test_Data_Dummy_Data.csv", encoding = "ISO-8859-1")
-file.iloc[:,9:27] = file.iloc[:,9:27].apply(lambda x : round(x, 2))
+file.iloc[:,14:50] = file.iloc[:,14:50].apply(lambda x : round(x, 2))
 
 
 # In[ ]:
@@ -56,7 +56,7 @@ def create_trace(data_chart,x_axis,y_axis,chart_type,dataPanda):
 def create_date_trace(data_chart,x_axis,y_axis,chart_type,dataPanda) : 
     x=data_chart[data_chart['Metric'] == y_axis]['Date']
     if (chart_type == 'scatter'): 
-            for i in data_chart.iloc[:,9:27].columns.unique():
+            for i in data_chart.iloc[:,14:50].columns.unique():
                 trace = go.Scatter(
                     x=x,
                     y=data_chart[data_chart['Metric'] == y_axis][i],
@@ -71,7 +71,7 @@ def create_date_trace(data_chart,x_axis,y_axis,chart_type,dataPanda) :
                 dataPanda.append(trace)
     else:            
         if (chart_type == 'line'): 
-            for i in data_chart.iloc[:,9:27].columns.unique():
+            for i in data_chart.iloc[:,14:50].columns.unique():
                     trace = go.Scatter(
                             x=x,
                             y=data_chart[data_chart['Metric'] == y_axis][i],
@@ -82,7 +82,7 @@ def create_date_trace(data_chart,x_axis,y_axis,chart_type,dataPanda) :
                     dataPanda.append(trace)
         else:            
             if (chart_type == 'bar'): 
-                for i in data_chart.iloc[:,9:27].columns.unique():
+                for i in data_chart.iloc[:,14:50].columns.unique():
                         trace = go.Bar(
                             x=x,
                             y=data_chart[data_chart['Metric'] == y_axis][i],
@@ -94,7 +94,7 @@ def create_date_trace(data_chart,x_axis,y_axis,chart_type,dataPanda) :
 
 def create_other_trace(data_chart,x_axis,y_axis,chart_type,dataPanda) : 
     if (chart_type == 'scatter'): 
-            for i in data_chart.iloc[:,9:27].columns.unique():
+            for i in data_chart.iloc[:,14:50].columns.unique():
                 trace = go.Scatter(
                     x=data_chart[data_chart['Metric'] == x_axis][i],
                     y=data_chart[data_chart['Metric'] == y_axis][i],
@@ -109,7 +109,7 @@ def create_other_trace(data_chart,x_axis,y_axis,chart_type,dataPanda) :
                 dataPanda.append(trace)
     else :            
         if (chart_type == 'line'): 
-            for i in data_chart.iloc[:,9:27].columns.unique():
+            for i in data_chart.iloc[:,14:50].columns.unique():
                     trace = go.Scatter(
                                 x=data_chart[data_chart['Metric'] == x_axis][i],
                                 y=data_chart[data_chart['Metric'] == y_axis][i],
@@ -120,7 +120,7 @@ def create_other_trace(data_chart,x_axis,y_axis,chart_type,dataPanda) :
                     dataPanda.append(trace)
         else:            
             if (chart_type == 'bar'): 
-                    for i in data_chart.iloc[:,9:27].columns.unique():
+                    for i in data_chart.iloc[:,14:50].columns.unique():
                             trace = go.Bar(
                                     x=data_chart[data_chart['Metric'] == x_axis][i],
                                     y=data_chart[data_chart['Metric'] == y_axis][i],
