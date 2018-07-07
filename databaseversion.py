@@ -32,6 +32,7 @@ server.config.from_object(Config)
 
 
 file = pd.read_csv( "Test_Data_Dummy_Data.csv", encoding = "ISO-8859-1")
+file.iloc[:,14:50] = file.iloc[:,14:50].apply(lambda x : x.astype('float'))
 file.iloc[:,14:50] = file.iloc[:,14:50].apply(lambda x : round(x, 2))
 
 
