@@ -14,9 +14,9 @@ import pandas as pd
 import numpy as np
 
 
-#app = Flask(__name__)
+app = Flask(__name__)
 server = Flask(__name__)
-app = Dash(__name__, server=server, url_base_pathname='/dashed') #Another Bash Graph inline, no callbacks.
+#app = Dash(__name__, server=server, url_base_pathname='/dashed') #Another Bash Graph inline, no callbacks.
 #app = dash.Dash(__name__, server=server)
 #app.config.from_object(Config)
 server.config.from_object(Config)
