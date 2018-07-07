@@ -23,4 +23,5 @@ server.config.from_object(Config)
 #db = SQLAlchemy(server)
 #migrate = Migrate(server, db)
 
-from app import routes, models
+#from app import routes, models
+from app import routes
