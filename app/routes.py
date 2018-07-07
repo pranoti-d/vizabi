@@ -1,7 +1,7 @@
 from app import app
 #from app import server
 
-@server.route('/')
-@server.route('/index')
+@app.route('/')
+@app.route('/index')
 def index():
     return "Hello, World!"
