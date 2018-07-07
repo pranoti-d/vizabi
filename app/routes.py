@@ -1,5 +1,5 @@
 from app import app
-from app import server
+#from app import server
 
 @server.route('/')
 @server.route('/index')
