@@ -1,16 +1,24 @@
 
 <html>
     <head>
-      {% if title %}
-      <title>{{ title }} - States of India</title>
-      {% else %}
-      <title>Welcome to States of India</title>
-      {% endif %}
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">  
     </head>
     <body>
-        <div>States of India: <a href="/index">Home</a></div>
-        <hr>
-        {% block content %}{% endblock %}
+        <header>
+            <div class="container">
+                <h1 class="logo">States of India app</h1>
+                <strong><nav>
+                    <ul class="menu">
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                    </ul>
+                </nav></strong>
+            </div>
+         </header>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
     </body>
 </html>
 
