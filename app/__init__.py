@@ -7,6 +7,7 @@ from dash import Dash
 from dash.dependencies import Input, State, Output
 import dash_core_components as dcc
 import dash_html_components as html
+from elasticsearch import Elasticsearch
 
 import json
 import plotly
@@ -15,6 +16,20 @@ import numpy as np
 
 
 app = Flask(__name__)
+
+# ...
+
+def create_app(config_class=Config):
+    app = Flask(__name__)
+    app.config.from_object(config_class)
+
+    # ...
+    app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) \
+        if app.config['ELASTICSEARCH_URL'] else None
+
+    # ...
+  
+
 #server = Flask(__name__)
 #app = Dash(__name__, server=server, url_base_pathname='/dashed') #Another Bash Graph inline, no callbacks.
 #app = dash.Dash(__name__, server=server)
