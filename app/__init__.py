@@ -40,4 +40,4 @@ def create_app(config_class=Config):
 #migrate = Migrate(server, db)
 
 #from app import routes, models
-from app import routes
+from app import routes, models
