@@ -41,7 +41,7 @@ class test_data_dummy_data(db.Model):
 	MADHYA_PRADESH = db.Column(db.Float)
 	UTTARAKHAND = db.Column(db.Float)
 	UTTAR_PRADESH = db.Column(db.Float)
-	DADRANAGAR_HAVELI = db.Column(db.Float)\=\
+	DADRANAGAR_HAVELI = db.Column(db.Float)
 	DAMAN_DIU = db.Column(db.Float)
 	GOA = db.Column(db.Float)
 	GUJARAT = db.Column(db.Float)
