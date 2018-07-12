@@ -16,7 +16,9 @@ import numpy as np
 
 
 app = Flask(__name__)
-
+server = Flask(__name__)
+server.config.from_object(Config)
+db = SQLAlchemy(server)
 # ...
 
 def create_app(config_class=Config):
