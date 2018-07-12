@@ -31,7 +31,7 @@ class test_data_dummy_data(db.Model):
 	MIZORAM = db.Column(db.Float)
 	NAGALAND = db.Column(db.Float)
 	TRIPURA = db.Column(db.Float)
-	ANDAMAN & NICOBAR ISLANDS = db.Column(db.Float)
+	ANDAMAN_NICOBAR_ISLANDS = db.Column(db.Float)
 	BIHAR = db.Column(db.Float)
 	JHARKHAND = db.Column(db.Float)
 	ODISHA = db.Column(db.Float)
