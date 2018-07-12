@@ -10,6 +10,6 @@ class Config(object):
     MYSQL_PASSWORD = 'passowrd'
     MYSQL_DB = 'db'
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql:/root:password@localhost/db'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:password@localhost/db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
   
