@@ -3,7 +3,7 @@ from app import db
 
 
 class test_data_dummy_data(db.Model):
-       Year = db.Column(db.Integer,index=True,primary_key=True)
+        Year = db.Column(db.Integer,index=True,primary_key=True)
         Month = db.Column(db.Integer,index=True)
         Week = db.Column(db.String(120),index=True)
         Frequency = db.Column(db.String(120),index=True)
