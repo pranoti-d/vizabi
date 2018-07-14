@@ -16,9 +16,11 @@ import numpy as np
 
 
 app = Flask(__name__)
-server = Flask(__name__)
-server.config.from_object(Config)
-db = SQLAlchemy(server)
+app.config.from_object(Config)
+#server = Flask(__name__)
+#server.config.from_object(Config)
+#db = SQLAlchemy(server)
+db = SQLAlchemy(app)
 # ...
 
 def create_app(config_class=Config):
@@ -39,7 +41,8 @@ def create_app(config_class=Config):
 
 #server.config.from_object(Config)
 #db = SQLAlchemy(server)
-migrate = Migrate(server, db)
+#migrate = Migrate(server, db)
+migrate = Migrate(app, db)
 
 #from app import routes, models
 from app import routes, models
