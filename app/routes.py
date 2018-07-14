@@ -16,6 +16,8 @@ def index():
 
 @app.route('/login', from app import app)
 def login():
+    name=request.form['name']
+    print name
     return render_template('index_1.html', title='Home')
 
 @app.route('/search', methods = ['POST', 'GET'])
