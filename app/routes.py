@@ -16,7 +16,6 @@ def index():
 
 @app.route('/login', methods = ['POST', 'GET'])
 def login():
-    name=request.form['name']
     return render_template('index_1.html', title='Home')
 
 @app.route('/search', methods = ['POST', 'GET'])
