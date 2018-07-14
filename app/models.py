@@ -55,7 +55,7 @@ class test_data_dummy_data(SearchableMixin, db.Model):
         Datetime = db.Column(db.String(120))
         Category = db.Column(db.String(120))
         Sub_Category = db.Column(db.String(120))
-        Metric = db.Column(db.String(120), index=True)
+        Metric = db.Column(db.String(120))
         Units = db.Column(db.String(120))
         Source = db.Column(db.String(120))
         Description = db.Column(db.String(500))
