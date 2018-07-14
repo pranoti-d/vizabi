@@ -14,7 +14,7 @@ def before_request():
 def index():
     return render_template('index_1.html', title='Home')
 
-@app.route('/search')
+@app.route('/search', methods = ['POST', 'GET'])
 def search():
-    list = test_data_dummy_data.query.whoosh_search(request.args.get('query')).all
+    list = test_data_dummy_data.query.whoosh_search(request.args.get('nm')).all
     return render_template('search.html', title=_('Search'), posts=list)
