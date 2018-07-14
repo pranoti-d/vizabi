@@ -14,6 +14,10 @@ def before_request():
 def index():
     return render_template('index_1.html', title='Home')
 
+@app.route('/login', from app import app)
+def login():
+    return render_template('index_1.html', title='Home')
+
 @app.route('/search', methods = ['POST', 'GET'])
 def search():
     list = test_data_dummy_data.query.whoosh_search(request.args.get('nm')).all
