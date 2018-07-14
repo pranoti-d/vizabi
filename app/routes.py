@@ -15,12 +15,5 @@ def index():
 
 @app.route('/search')
 def search():
-    page = request.args.get('page', 1, type=int)
-    posts, total = Post.search(g.search_form.q.data, page,
-                               current_app.config['POSTS_PER_PAGE'])
-    next_url = url_for('search', q=g.search_form.q.data, page=page + 1) \
-        if total > page * current_app.config['POSTS_PER_PAGE'] else None
-    prev_url = url_for('search', q=g.search_form.q.data, page=page - 1) \
-        if page > 1 else None
-    return render_template('search.html', title=_('Search'), posts=posts,
-                           next_url=next_url, prev_url=prev_url)
+    list = test_data_dummy_data.query.whoosh_search(request.args.get('query')).all
+    return render_template('search.html', title=_('Search'), posts=list)
