@@ -1,23 +1,31 @@
 
+
 <html>
     <head>
-      <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">  
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">  
+        {% if title %}
+        <title>{{ title }} - State of India</title>
+        {% else %}
+        <title>Welcome to State of India</title>
+        {% endif %}
     </head>
     <body>
-        <header>
-            <div class="container">
-                <h1 class="logo">States of India app</h1>
-                <strong><nav>
-                    <ul class="menu">
-                    This is menu
-                    </ul>
-                </nav></strong>
-            </div>
-         </header>
-        <div class="container">
-            {% block content %}
-            {% endblock %}
+        <div>
+            Microblog:
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('login') }}">Login</a>
         </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
     </body>
 </html>
 
