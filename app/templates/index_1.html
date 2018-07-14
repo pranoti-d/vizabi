@@ -65,7 +65,7 @@
           <h1 class="mt-5">Explore the State of India</h1>
           <p class="lead">What would you like to explore today?</p>
           <div class="wrap">
-            <div class="search" method="GET" action="search">
+            <div class="search" method="get" action={{ url_for('search') }}>
               <input type="text" class="form-control" name="query" id="query" placeholder="What are you looking for?">
               <button type="submit" class="searchButton">
                 <i class="btn btn-primary"></i>
