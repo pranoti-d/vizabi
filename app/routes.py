@@ -14,7 +14,7 @@ def before_request():
 def index():
     return render_template('index_1.html', title='Home')
 
-@app.route('/login', from app import app)
+@app.route('/login', methods = ['POST', 'GET'])
 def login():
     name=request.form['name']
     print name
