@@ -39,7 +39,7 @@ def create_app(config_class=Config):
 
 #server.config.from_object(Config)
 #db = SQLAlchemy(server)
-#migrate = Migrate(server, db)
+migrate = Migrate(server, db)
 
 #from app import routes, models
 from app import routes, models
