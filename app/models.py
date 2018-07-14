@@ -3,7 +3,7 @@ from app import db
 
 
 class test_data_dummy_data(db.Model):
-         __searchable__ = ['Description']
+        __searchable__ = ['Description']
         Year = db.Column(db.Integer,index=True,primary_key=True)
         Month = db.Column(db.Integer,index=True)
         Week = db.Column(db.String(120),index=True)
