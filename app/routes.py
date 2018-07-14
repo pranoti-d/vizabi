@@ -4,7 +4,6 @@ from flask import render_template
 from flask import g
 from app.forms import SearchForm
 
-@bp.before_app_request
 def before_request():
     g.search_form = SearchForm()
     g.locale = str(get_locale())
@@ -14,7 +13,7 @@ def before_request():
 def index():
     return render_template('index_1.html', title='Home')
 
-@bp.route('/search')
+@app.route('/search')
 def search():
     page = request.args.get('page', 1, type=int)
     posts, total = Post.search(g.search_form.q.data, page,
