@@ -3,6 +3,7 @@ from app import db
 
 
 class test_data_dummy_data(db.Model):
+         __searchable__ = ['Description']
         Year = db.Column(db.Integer,index=True,primary_key=True)
         Month = db.Column(db.Integer,index=True)
         Week = db.Column(db.String(120),index=True)
@@ -14,7 +15,7 @@ class test_data_dummy_data(db.Model):
         Metric = db.Column(db.String(120), index=True)
         Units = db.Column(db.String(120))
         Source = db.Column(db.String(120))
-        Description = db.Column(db.String(500))
+        Description = db.Column(db.String(500), index=True)
         Remarks = db.Column(db.String(500))
         Tag = db.Column(db.String(120))
         CHANDIGARH = db.Column(db.Float)
