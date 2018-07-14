@@ -1,7 +1,9 @@
 from datetime import datetime
 from app import app, db
 from app.search import add_to_index, remove_from_index, query_index
+import flask_whooshalchemy as wa 
 
+wa.whoosh_index(app, test_data_dummy_data)
 
 class SearchableMixin(object):
     @classmethod
