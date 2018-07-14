@@ -56,8 +56,8 @@ class test_data_dummy_data(db.Model):
         All_India = db.Column(db.Float)
 
 
-    def __repr__(self):
-        return '<test_data_dummy_data {}>'.format(self.Metric)
+        def __repr__(self):
+              return '<test_data_dummy_data {}>'.format(self.Metric)
 
     
 
