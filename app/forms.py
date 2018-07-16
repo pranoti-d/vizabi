@@ -7,5 +7,5 @@ class SearchForm(FlaskForm):
     submit = SubmitField('submit')
 
 class ResultForm(FlaskForm):
-    textvalue = StringField('Hello World)
+    textvalue = StringField('Hello World')
     
