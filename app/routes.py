@@ -17,7 +17,7 @@ def index():
 def login():
     return render_template('index_1.html', title='Home')
 
-@app.route('/search')
+@app.route('/search', , methods=['GET', 'POST'])
 def search():
     form = SearchForm()
     return render_template('search.html', title='Search', form=form)
