@@ -3,6 +3,7 @@ from flask import render_template
 #from app import server
 from flask import g
 from app import models
+from app.forms import SearchForm
 
 def before_request():
     g.search_form = SearchForm()
