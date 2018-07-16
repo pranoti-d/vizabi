@@ -9,8 +9,8 @@ def before_request():
     g.search_form = SearchForm()
     g.locale = str(get_locale())
 
-@app.route('/')
-@app.route('/index')
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/index', methods=['GET', 'POST'])
 def index():
     form = SearchForm()
     return render_template('search.html', title='Search', form=form)
