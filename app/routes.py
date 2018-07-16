@@ -12,7 +12,7 @@ def before_request():
 @app.route('/index')
 def index():
     form = SearchForm()
-     return render_template('search.html', title='Search', form=form)
+    return render_template('search.html', title='Search', form=form)
 
 @app.route('/login', methods = ['POST', 'GET'])
 def login():
