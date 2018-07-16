@@ -17,7 +17,7 @@ def index():
 def login():
     return render_template('index_1.html', title='Home')
 
-@app.route('/search', methods = ['POST', 'GET'])
+@app.route('/search')
 def search():
-    list = test_data_dummy_data.query.whoosh_search(request.args.get('nm')).all
-    return render_template('search.html', title=_('Search'), posts=list)
+    form = SearchForm()
+    return render_template('search.html', title='Search', form=form)
