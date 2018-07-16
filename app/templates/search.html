@@ -15,7 +15,7 @@
         <p>
             {{ form.submit.label }}<br>
             {{ form.submit(size=32) }}<br>
-            {% for error in form.password.errors %}
+            {% for error in form.submit.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
