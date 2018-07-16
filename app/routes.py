@@ -11,7 +11,8 @@ def before_request():
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('search.html', title='Home')
+    form = SearchForm()
+     return render_template('search.html', title='Search', form=form)
 
 @app.route('/login', methods = ['POST', 'GET'])
 def login():
