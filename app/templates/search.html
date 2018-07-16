@@ -8,7 +8,7 @@
         <p>
             {{ form.seachString.label }}<br>
             {{ form.seachString(size=32) }}<br>
-            {% for error in form.username.errors %}
+            {% for error in form.seachString.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
