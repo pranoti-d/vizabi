@@ -4,9 +4,10 @@
 <html>
     <head>
         {% if title %}
-        <title>{{ title }} - Microblog</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">  
+        <title>{{ title }} - State of India</title>
         {% else %}
-        <title>Welcome to Microblog</title>
+        <title>Welcome to State of India/title>
         {% endif %}
     </head>
     <body>
