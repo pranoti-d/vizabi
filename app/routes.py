@@ -2,6 +2,7 @@ from app import app
 from flask import render_template, flash, redirect, url_for
 #from app import server
 from flask import g
+from flask_babel import _, get_locale
 from app.models import test_data_dummy_data
 from app.forms import SearchForm, resultForm
 
