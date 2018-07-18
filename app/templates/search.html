@@ -13,7 +13,7 @@
             {% endfor %}
         </p>   -->
         {% if g.search_form %}
-                <form action="" method="get" novalidate>
+                <form action="" method=("get","post") novalidate>
                     <div class="form-group">
                         {{ g.search_form.q(size=20, class='form-control',
                             placeholder=g.search_form.q.label.text) }}
