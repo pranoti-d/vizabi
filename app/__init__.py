@@ -8,6 +8,7 @@ from dash.dependencies import Input, State, Output
 import dash_core_components as dcc
 import dash_html_components as html
 from elasticsearch import Elasticsearch
+from flask_babel import Babel, lazy_gettext as _l
 
 import json
 import plotly
@@ -21,12 +22,16 @@ app.config.from_object(Config)
 #server.config.from_object(Config)
 #db = SQLAlchemy(server)
 db = SQLAlchemy(app)
+babel = Babel()
+babel.init_app(app)
+db.init_app(app)
 # ...
 
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
-
+    babel.init_app(app)
+    
     # ...
     app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) \
         if app.config['ELASTICSEARCH_URL'] else None
