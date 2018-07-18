@@ -5,25 +5,27 @@
     <h1>Explore State of India</h1>
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
-   <!--     <p>
-            {{ form.seachString.label }}<br>
-            {{ form.seachString(size=32) }}<br>
-            {% for error in form.seachString.errors %}
+       {% if g.search_form %}
+        <p>
+            {{ g.search_form.seachString.label }}<br>
+            {{ g.search_form.seachString(size=32) }}<br>
+            {% for error in g.search_form.seachString.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
-        </p>   -->
-        {% if g.search_form %}
+       {% endif %}      
+        </p>   
+    <!--    {% if g.search_form %}
                 <form action="" method=("get","post") novalidate>
                     <div class="form-group">
                         {{ g.search_form.q(size=20, class='form-control',
                             placeholder=g.search_form.q.label.text) }}
                     </div>
                 </form>
-         {% endif %}  
+         {% endif %}  -->
         <p>
-            {{ form.submit.label }}<br>
-            {{ form.submit(size=32) }}<br>
-            {% for error in form.submit.errors %}
+            {{ g.search_form.submit.label }}<br>
+            {{ g.search_form.submit(size=32) }}<br>
+            {% for error in g.search_form.submit.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
