@@ -1,3 +1,4 @@
+from flask import request
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from flask_babel import _, lazy_gettext as _l
