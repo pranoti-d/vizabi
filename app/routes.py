@@ -15,7 +15,7 @@ def before_request():
 def index():
     form = SearchForm()
     g.search_form = SearchForm()
-    g.locale = str(get_locale())
+    #g.locale = str(get_locale())
     if form.validate_on_submit():
         # ...
         return redirect('/result')
