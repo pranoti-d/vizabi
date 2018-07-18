@@ -8,7 +8,7 @@ from app.forms import SearchForm, resultForm
 
 def before_request():
     g.search_form = SearchForm()
-    g.locale = str(get_locale())
+    #g.locale = str(get_locale())
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
