@@ -1,6 +1,5 @@
 from app import app
-from flask import render_template, flash, redirect, url_for, request, g, \
-    jsonify, current_app
+from flask import render_template, flash, redirect, url_for, request, g, current_app
 #from app import server
 from flask import g
 from flask_babel import _, get_locale
