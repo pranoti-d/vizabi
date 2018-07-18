@@ -6,6 +6,7 @@ from flask_babel import _, get_locale
 from app.models import test_data_dummy_data
 from app.forms import SearchForm, resultForm
 
+@app.before_request
 def before_request():
     g.search_form = SearchForm()
     #g.locale = str(get_locale())
