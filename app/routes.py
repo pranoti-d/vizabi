@@ -10,8 +10,6 @@ from app.search import add_to_index
 @app.before_request
 def before_request():
     g.search_form = SearchForm()
-    for descrip in test_data_dummy_data.query.all() :
-        add_to_index('description',descrip)
     #g.locale = str(get_locale())
 
 @app.route('/', methods=['GET', 'POST'])
