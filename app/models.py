@@ -10,7 +10,7 @@ class SearchableMixin(object):
     def search(cls, expression, page, per_page):
         ids, total = query_index('description', expression, page, per_page)
         if total == 0:
-            return cls.query.filter_by(id=0), 0
+            return cls.query.filter_by(Category=0), 0
         when = []
         for i in range(len(ids)):
             when.append((ids[i], i))
