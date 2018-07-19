@@ -5,6 +5,7 @@ from flask import g
 from flask_babel import _, get_locale
 from app.models import test_data_dummy_data
 from app.forms import SearchForm, resultForm
+from app.search import add_to_index
 
 @app.before_request
 def before_request():
