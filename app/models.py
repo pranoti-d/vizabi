@@ -8,14 +8,14 @@ from app.search import add_to_index, remove_from_index, query_index
 class SearchableMixin(object):
     @classmethod
     def search(cls, expression, page, per_page):
-        ids, total = query_index('description', expression, page, per_page)
+        ids, total = query_index('test_data_dummy_data', expression, page, per_page)
         if total == 0:
-            return cls.query.filter_by(Category=0), 0
+            return cls.query.filter_by(Metric=0), 0
         when = []
         for i in range(len(ids)):
             when.append((ids[i], i))
-        return cls.query.filter(cls.Category.in_(ids)).order_by(
-            db.case(when, value=cls.Category)), total
+        return cls.query.filter(cls.Metric.in_(ids)).order_by(
+            db.case(when, value=cls.Metric)), total
 
     @classmethod
     def before_commit(cls, session):
@@ -49,7 +49,7 @@ db.event.listen(db.session, 'after_commit', SearchableMixin.after_commit)
 
 
 class test_data_dummy_data (SearchableMixin, db.Model):
-        __searchable__ = ['Description']
+        __searchable__ = ['Metric']
         Year = db.Column(db.Integer,index=True,primary_key=True)
         Month = db.Column(db.Integer,index=True)
         Week = db.Column(db.String(120),index=True)
