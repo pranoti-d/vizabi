@@ -37,10 +37,10 @@ def result():
     form = resultForm()
     page = request.args.get('page', 1, type=int)
    # lists, total = test_data_dummy_data.search(g.search_form.q.data, page,20)
-    lists, total = test_data_dummy_data.search('Tanvi', page,20)
-    next_url = url_for('result', q=g.search_form.seachString.data, page=page + 1) \
+    lists, total = test_data_dummy_data.search(g.search_form.q.data, page,20)
+    next_url = url_for('result', q=g.search_form.q.data, page=page + 1) \
         if total > page * 20 else None
-    prev_url = url_for('result', q=g.search_form.seachString.data, page=page - 1) \
+    prev_url = url_for('result', q=g.search_form.q.data, page=page - 1) \
         if page > 1 else None
     return render_template('result.html', title=_('results'), lists=lists,
                            next_url=next_url, prev_url=prev_url, form=form)
