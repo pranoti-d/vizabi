@@ -34,7 +34,7 @@ def search():
 
 @app.route('/result', methods=['GET', 'POST'])
 def result():
-    form = resultForm()
+    form = SearchForm()
     page = request.args.get('page', 1, type=int)
     lists, total = test_data_dummy_data.search(g.search_form.seachString.data, page,
                                20)
@@ -43,5 +43,5 @@ def result():
     prev_url = url_for('result', q=g.search_form.seachString.data, page=page - 1) \
         if page > 1 else None
     return render_template('result.html', title=_('results'), lists=lists,
-                           next_url=next_url, prev_url=prev_url)
+                           next_url=next_url, prev_url=prev_url, form=form)
     
