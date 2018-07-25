@@ -10,7 +10,7 @@ class SearchableMixin(object):
     def search(cls, expression, page, per_page):
         ids, total = query_index('test_data_dummy_data', 'Tanvi', 1, 20)
         if total == 0:
-            return cls.query.filter_by(Metric=0), 0
+            return 'No Results', 0
         when = []
         for i in range(len(ids)):
             when.append((ids[i], i))
