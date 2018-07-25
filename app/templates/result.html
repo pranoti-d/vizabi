@@ -4,10 +4,10 @@
     <h1>Hello World</h1>
     <form action="" method="get" novalidate>
         {{ form.hidden_tag() }}
-      {% for list in lists %}
-        <a {{ list.Metric }} </a> 
-    {% endfor %}
-    <nav aria-label="...">
+     <a href="{{ results or '#' }}">
+         <span aria-hidden="true">&larr;</span> {{ lists.all() }}
+      </a>    
+      <nav aria-label="...">
         <ul class="pager">
             <li class="previous{% if not prev_url %} disabled{% endif %}">
                 <a href="{{ prev_url or '#' }}">
