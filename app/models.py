@@ -8,7 +8,7 @@ from app.search import add_to_index, remove_from_index, query_index
 class SearchableMixin(object):
     @classmethod
     def search(cls, expression, page, per_page):
-        ids, total = query_index('test_data_dummy_data', 'Tanvi', 1, 20)
+        ids, total = query_index('test_data_dummy_data', expression, 1, 20)
         if total == 0:
             return test_data_dummy_data.query.filter_by(Metric=-1), 0
         when = []
