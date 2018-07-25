@@ -1,0 +1,15 @@
+    <table class="table table-hover">
+        <tr>
+            <td width="70px">
+                <a href="{{ url_for('app.test_data_dummy_data', username=test_data_dummy_data.Metric) }}">
+                </a>
+            </td>
+            <td>
+                {% set user_link %}
+                    <a href="{{ url_for('app.test_data_dummy_data', username=test_data_dummy_data.Metric) }}">
+                        {{ test_data_dummy_data.Metric }}
+                    </a>
+                {% endset %}
+            </td>
+        </tr>
+    </table>
