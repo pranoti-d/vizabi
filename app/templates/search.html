@@ -7,9 +7,9 @@
         {{ form.hidden_tag() }}
        {% if g.search_form %}
         <p>
-            {{ g.search_form.seachString.label }}<br>
-            {{ g.search_form.seachString(size=32) }}<br>
-            {% for error in g.search_form.seachString.errors %}
+            {{ g.search_form.q.label.text }}<br>
+            {{ g.search_form.q(size=32) }}<br>
+            {% for error in g.search_form.q.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
        {% endif %}      
