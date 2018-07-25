@@ -5,7 +5,7 @@
     <form action="" method="get" novalidate>
         {{ form.hidden_tag() }}
      <a href="{{ results or '#' }}">
-         <span aria-hidden="true">&larr;</span> {{ g.search_form.q.data }}
+         <span aria-hidden="true">&larr;</span> {{ lists.all() }}
       </a>    
       <nav aria-label="...">
         <ul class="pager">
