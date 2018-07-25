@@ -8,13 +8,13 @@ from app.search import add_to_index, remove_from_index, query_index
 class SearchableMixin(object):
     @classmethod
     def search(cls, expression, page, per_page):
-        Metric, total = query_index('test_data_dummy_data', expression, page, per_page)
+        ids, total = query_index(cls.__tablename__, expression, page, per_page)
         if total == 0:
-            return test_data_dummy_data.query.filter_by(Metric=0), 0
+            return cls.query.filter_by(Metric=0), 0
         when = []
-        for i in range(len(Metric)):
-            when.append((Metric[i], i))
-        return test_data_dummy_data.query.filter(test_data_dummy_data.Metric.in_(Metric)).order_by(
+        for i in range(len(ids)):
+            when.append((ids[i], i))
+        return cls.query.filter(cls.Metric.in_(ids)).order_by(
             db.case(when, value=cls.Metric)), total
 
     @classmethod
