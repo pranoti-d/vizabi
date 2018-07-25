@@ -43,5 +43,5 @@ def result():
     prev_url = url_for('result', q=g.search_form.seachString.data, page=page - 1) \
         if page > 1 else None
     return render_template('result.html', title=_('results'), lists=lists,
-                           next_url=next_url, prev_url=prev_url, form=form)
+                           next_url=next_url, prev_url=prev_url)
     
