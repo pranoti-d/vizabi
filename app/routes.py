@@ -34,7 +34,7 @@ def search():
 
 @app.route('/result', methods=['GET', 'POST'])
 def result():
-    form = SearchForm()
+    form = resultForm()
     page = request.args.get('page', 1, type=int)
     lists, total = test_data_dummy_data.search(g.search_form.seachString.data, page,
                                20)
