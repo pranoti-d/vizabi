@@ -6,13 +6,13 @@ def add_to_index(index, model):
     payload = {}
     for field in model.__searchable__:
         payload[field] = getattr(model, field)
-    current_app.elasticsearch.index(index=index, doc_type=index, id=model.Year,
+    current_app.elasticsearch.index(index=index, doc_type=index, id=model.Id,
                                     body=payload)
 
 def remove_from_index(index, model):
     if not current_app.elasticsearch:
         return
-    current_app.elasticsearch.delete(index=index, doc_type=index, id=model.Year)
+    current_app.elasticsearch.delete(index=index, doc_type=index, id=model.Id)
 
 def query_index(index, query, page, per_page):
     if not current_app.elasticsearch:
