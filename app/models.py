@@ -12,7 +12,7 @@ class SearchableMixin(object):
         if total == 0:
            return test_data_dummy_data.query.filter_by(Metric=-1), 0
         else:   
-           return test_data_dummy_data.query.filter_by(Metric=0), total
+           return test_data_dummy_data.query.filter(cls.Metric.in_(ids)), total
 
     @classmethod
     def before_commit(cls, session):
