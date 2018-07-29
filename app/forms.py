@@ -2,7 +2,7 @@ from flask import request
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from flask_babel import _, lazy_gettext as _l
-from app.models import test_data_dummy_data
+from app.models import test_data_dummy_data, search_index
 
 class SearchForm(FlaskForm):
     seachString = StringField('search')
