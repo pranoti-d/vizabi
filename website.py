@@ -1,4 +1,4 @@
-from app import app
+from app import app, db
 from app.models import test_data_dummy_data
 #from app import server
 
