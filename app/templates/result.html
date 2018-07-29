@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Hello World</h1>
+    <h1>Search Results</h1>
     <form action="" method="get" novalidate>
         {{ form.hidden_tag() }}
+    {% for list in lists %}    
      <a href="{{ results or '#' }}">
          <span aria-hidden="true">&larr;</span> {{ list.Metric }}
       </a>    
+    {% endfor %}    
       <nav aria-label="...">
         <ul class="pager">
             <li class="previous{% if not prev_url %} disabled{% endif %}">
