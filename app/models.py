@@ -117,5 +117,5 @@ class search_index (SearchableIndex, db.Model):
       description = db.Column(db.String(500),index=True)
 
       def __repr__(self):
-             return '<search_index {}>'.format(self.category, self.sub_category, self.description)      
+            return '<search_index {}>'.format(self.category, self.sub_category, self.description)      
     
