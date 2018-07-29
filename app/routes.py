@@ -3,7 +3,7 @@ from flask import render_template, flash, redirect, url_for, request, g, current
 #from app import server
 from flask import g
 from flask_babel import _, get_locale
-from app.models import test_data_dummy_data
+from app.models import test_data_dummy_data, search_index
 from app.forms import SearchForm, resultForm
 from app.search import add_to_index
 
@@ -37,7 +37,7 @@ def result():
     form = resultForm()
     page = request.args.get('page', 1, type=int)
    # lists, total = test_data_dummy_data.search(g.search_form.q.data, page,20)
-    lists, total = test_data_dummy_data.search(g.search_form.q.data, page,20)
+    lists, total = search_index.search(g.search_form.q.data, page,20)
     next_url = url_for('result', q=g.search_form.q.data, page=page + 1) \
         if total > page * 20 else None
     prev_url = url_for('result', q=g.search_form.q.data, page=page - 1) \
