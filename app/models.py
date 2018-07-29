@@ -108,4 +108,14 @@ class test_data_dummy_data (SearchableMixin, db.Model):
         def __repr__(self):
               return '<test_data_dummy_data {}>'.format(self.Metric, self.Category)
 
+class search_index (SearchableIndex, db.Model):
+      __tablename__ = 'search_index'
+      __searchable__ = ['category','sub_category','description']
+      Id = db.Column(db.Integer,index=True,primary_key=True)
+      category = db.Column(db.String(50),index=True)
+      sub_category = db.Column(db.String(50),index=True)
+      description = db.Column(db.String(500),index=True)
+
+      def __repr__(self):
+             return '<search_index {}>'.format(self.category, self.sub_category, self.description)      
     
