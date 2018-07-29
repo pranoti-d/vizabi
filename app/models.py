@@ -45,7 +45,7 @@ db.event.listen(db.session, 'after_commit', SearchableMixin.after_commit)
 
 
 
-class test_data_dummy_data (db.Model):
+class test_data_dummy_data (SearchableMixin, db.Model):
         __tablename__ = 'test_data_dummy_data'
         __searchable__ = ['Metric','Category']
         Year = db.Column(db.Integer,index=True,primary_key=True)
