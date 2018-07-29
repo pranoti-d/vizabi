@@ -16,6 +16,18 @@ class SearchableMixin(object):
             when.append((ids[i], i))
         return cls.query.filter(cls.Id.in_(ids)).order_by(
             db.case(when, value=cls.Id)), total
+    
+class SearchableIndex(object):
+    @classmethod
+    def search(cls, expression, page, per_page):
+        ids, total = query_index(cls.__tablename__, expression, page, per_page)
+        if total == 0:
+            return cls.query.filter_by(Id=0), 0
+        when = []
+        for i in range(len(ids)):
+            when.append((ids[i], i))
+        return cls.query.filter(cls.Id.in_(ids)).order_by(
+            db.case(when, value=cls.Id)), total 
 
     @classmethod
     def before_commit(cls, session):
