@@ -102,6 +102,6 @@ class test_data_dummy_data (SearchableMixin, db.Model):
 
 
         def __repr__(self):
-              return '<test_data_dummy_data {}>'.format(self.Metric)
+              return '<test_data_dummy_data {}>'.format(self.Metric, self.Category)
 
     
