@@ -6,7 +6,7 @@
         {{ form.hidden_tag() }}
     {% for list in lists %}    
      <a href="{{ results or '#' }}">
-         <span aria-hidden="true">&larr;</span> {{ list.category }}
+         <span aria-hidden="true">&larr;</span> {{ list.all() }}
       </a>    
     {% endfor %}    
       <nav aria-label="...">
