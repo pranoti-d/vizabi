@@ -20,6 +20,7 @@ import numpy as np
 server = Flask(__name__)
 
 app = Dash(__name__,server=server)
+url_base_pathname='/app')
 
 server.config.from_object(Config)
 #server = Flask(__name__)
