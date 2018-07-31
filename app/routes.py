@@ -1,13 +1,13 @@
 from app import app
 from flask import render_template, flash, redirect, url_for, request, g, current_app
-#from app import server
+from app import server
 from flask import g
 from flask_babel import _, get_locale
 from app.models import test_data_dummy_data, search_index
 from app.forms import SearchForm, resultForm
 from app.search import add_to_index
 
-@app.before_request
+@server.before_request
 def before_request():
     g.search_form = SearchForm()
     #g.locale = str(get_locale())
