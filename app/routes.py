@@ -12,8 +12,8 @@ def before_request():
     g.search_form = SearchForm()
     #g.locale = str(get_locale())
 
-@app.route('/', methods=['GET', 'POST'])
-@app.route('/index', methods=['GET', 'POST'])
+@server.route('/', methods=['GET', 'POST'])
+@server.route('/index', methods=['GET', 'POST'])
 def index():
     form = SearchForm()
     g.search_form = SearchForm()
@@ -23,16 +23,16 @@ def index():
         return redirect('/result')
     return render_template('search.html', title='Search', form=form)
 
-@app.route('/login', methods = ['POST', 'GET'])
+@server.route('/login', methods = ['POST', 'GET'])
 def login():
     return render_template('index_1.html', title='Home')
 
-@app.route('/search', methods=['GET', 'POST'])
+@server.route('/search', methods=['GET', 'POST'])
 def search():
     form = SearchForm()
     return render_template('search.html', title='Search', form=form)
 
-@app.route('/result', methods=['GET', 'POST'])
+@server.route('/result', methods=['GET', 'POST'])
 def result():
     form = resultForm()
     page = request.args.get('page', 1, type=int)
@@ -49,7 +49,7 @@ def result():
                            next_url=next_url, prev_url=prev_url, form=form)
     
     
-@app.route('/visualization', methods=['GET', 'POST'])
+@server.route('/visualization', methods=['GET', 'POST'])
 def visualization():
      return render_template('visualization.html', title='Visualization')
     
