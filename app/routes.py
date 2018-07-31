@@ -51,6 +51,5 @@ def result():
     
 @app.route('/visualization', methods=['GET', 'POST'])
 def visualization():
-    form = visualForm()
-    return render_template('visualization.html', title='Visualization', form=form)
+     return render_template('visualization.html', title='Visualization')
     
