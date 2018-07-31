@@ -33,16 +33,6 @@ server.elasticsearch = Elasticsearch([server.config['ELASTICSEARCH_URL']]) \
         if server.config['ELASTICSEARCH_URL'] else None
 # ...
 
-def create_app(config_class=Config):
-    server = Flask(__name__)
-    app = Dash(__name__,server=server)
-    #app = Flask(__name__)
-    app.config.from_object(config_class)
-    babel.init_app(server)
-    
-    # ...
-    server.elasticsearch = Elasticsearch([server.config['ELASTICSEARCH_URL']]) \
-        if server.config['ELASTICSEARCH_URL'] else None
 
     # ...
   
