@@ -1,4 +1,4 @@
-from app import app
+cfrom app import app
 from flask import render_template, flash, redirect, url_for, request, g, current_app
 #from app import server
 from flask import g
@@ -42,6 +42,15 @@ def result():
         if total > page * 20 else None
     prev_url = url_for('result', q=g.search_form.q.data, page=page - 1) \
         if page > 1 else None
+    if form.validate_on_submit():
+        # ...
+        return redirect('/visualization')    
     return render_template('result.html', title=_('results'), lists=lists,
                            next_url=next_url, prev_url=prev_url, form=form)
+    
+    
+@app.route('/visualization', methods=['GET', 'POST'])
+def visualization():
+    form = visualForm()
+    return render_template('visualization.html', title='Visualization', form=form)
     
