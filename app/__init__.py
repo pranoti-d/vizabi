@@ -29,8 +29,8 @@ db = SQLAlchemy(server)
 babel = Babel()
 babel.init_app(server)
 db.init_app(server)
-app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) \
-        if app.config['ELASTICSEARCH_URL'] else None
+server.elasticsearch = Elasticsearch([server.config['ELASTICSEARCH_URL']]) \
+        if server.config['ELASTICSEARCH_URL'] else None
 # ...
 
 def create_app(config_class=Config):
@@ -41,8 +41,8 @@ def create_app(config_class=Config):
     babel.init_app(server)
     
     # ...
-    app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) \
-        if app.config['ELASTICSEARCH_URL'] else None
+    server.elasticsearch = Elasticsearch([server.config['ELASTICSEARCH_URL']]) \
+        if server.config['ELASTICSEARCH_URL'] else None
 
     # ...
   
