@@ -19,8 +19,7 @@ import numpy as np
 #app = Flask(__name__)
 server = Flask(__name__)
 
-app = Dash(__name__,server=server)
-url_base_pathname='/app')
+app = Dash(__name__,server=server, url_base_pathname='/app')
 
 server.config.from_object(Config)
 #server = Flask(__name__)
