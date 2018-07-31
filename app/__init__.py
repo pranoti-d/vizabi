@@ -21,7 +21,7 @@ server = Flask(__name__)
 
 app = Dash(__name__,server=server)
 
-app.config.from_object(Config)
+server.config.from_object(Config)
 #server = Flask(__name__)
 #server.config.from_object(Config)
 #db = SQLAlchemy(server)
