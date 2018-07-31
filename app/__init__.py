@@ -32,10 +32,6 @@ db.init_app(server)
 server.elasticsearch = Elasticsearch([server.config['ELASTICSEARCH_URL']]) \
         if server.config['ELASTICSEARCH_URL'] else None
 
-app.layout = html.Div([
-html.Div('Carrefour sales Viewer')
-])        
-  
 
 #server = Flask(__name__)
 #app = Dash(__name__, server=server, url_base_pathname='/dashed') #Another Bash Graph inline, no callbacks.
