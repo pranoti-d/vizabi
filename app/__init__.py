@@ -27,8 +27,8 @@ server.config.from_object(Config)
 db = SQLAlchemy(server)
 #db = SQLAlchemy(app)
 babel = Babel()
-babel.init_app(app)
-db.init_app(app)
+babel.init_app(server)
+db.init_app(server)
 app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) \
         if app.config['ELASTICSEARCH_URL'] else None
 # ...
@@ -38,7 +38,7 @@ def create_app(config_class=Config):
     app = Dash(__name__,server=server)
     #app = Flask(__name__)
     app.config.from_object(config_class)
-    babel.init_app(app)
+    babel.init_app(server)
     
     # ...
     app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) \
