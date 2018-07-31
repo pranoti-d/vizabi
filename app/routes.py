@@ -1,4 +1,4 @@
-cfrom app import app
+from app import app
 from flask import render_template, flash, redirect, url_for, request, g, current_app
 #from app import server
 from flask import g
