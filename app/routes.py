@@ -22,6 +22,7 @@ def index():
     if form.validate_on_submit():
         # ...
         return redirect('/result')
+    app.layout = html.Div([ dcc.Location(id='url', refresh=False),html.Div(id='page-content') ])
     return render_template('search.html', title='Search', form=form)
 
 @server.route('/login', methods = ['POST', 'GET'])
