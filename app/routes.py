@@ -16,14 +16,14 @@ def before_request():
 @server.route('/', methods=['GET', 'POST'])
 @server.route('/index', methods=['GET', 'POST'])
 def index():
-    form = SearchForm()
-    g.search_form = SearchForm()
-    #g.locale = str(get_locale())
-    if form.validate_on_submit():
+    return redirect('/app')
+    app.layout = html.Div([ dcc.Location(id='url', refresh=False),html.Div(id='page-content') ]) 
+    #form = SearchForm()
+    #g.search_form = SearchForm()
+    #if form.validate_on_submit():
         # ...
-        return redirect('/result')
-    app.layout = html.Div([ dcc.Location(id='url', refresh=False),html.Div(id='page-content') ])
-    return render_template('search.html', title='Search', form=form)
+        #return redirect('/result')
+    #return render_template('search.html', title='Search', form=form)
 
 @server.route('/login', methods = ['POST', 'GET'])
 def login():
