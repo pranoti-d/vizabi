@@ -13,7 +13,7 @@ import sys,os
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-myApp = DispatcherMiddleware(AppServer,{'/home': webServer})
+myApp = DispatcherMiddleware(AppServer,{'/app': webServer})
 
 if __name__ == '__main__':
    run_simple('127.0.0.1', 5000, myApp, use_reloader=True, use_debugger=True)
