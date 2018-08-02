@@ -1,7 +1,7 @@
 from werkzeug.wsgi import DispatcherMiddleware
 from werkzeug.serving import run_simple
-from server import AppServer
-from webroutes import webServer
+from app.server import AppServer
+from app.webroutes import webServer
 import sys,os
 #from app.models import test_data_dummy_data, search_index
 
