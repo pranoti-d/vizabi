@@ -6,4 +6,4 @@ webServer = Flask(__name__)
 
 @webServer.route('/contact')
 def contact():
-    return render_template('pages/visualization.html')
+    return render_template('visualization.html')
