@@ -26,6 +26,8 @@ AppServer.elasticsearch = Elasticsearch([AppServer.config['ELASTICSEARCH_URL']])
        if AppServer.config['ELASTICSEARCH_URL'] else None
 migrate = Migrate(AppServer, db)
 
+from app import routes, models
+
 #@AppServer.route('/', methods=['GET', 'POST'])
 #@AppServer.route('/index', methods=['GET', 'POST'])
 #def index():
