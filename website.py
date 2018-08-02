@@ -1,11 +1,18 @@
-from app import app, db
-from app.models import test_data_dummy_data, search_index
+from werkzeug.wsgi import DispatcherMiddleware
+from werkzeug.serving import run_simple
 from app import server
+from app import app, db
+import sys,os
+from app.models import test_data_dummy_data, search_index
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+myApp = DispatcherMiddleware(server,{'/app': app})
 
 @server.shell_context_processor
 def make_shell_context():
     return {'db': db, 'test_data_dummy_data': test_data_dummy_data, 'search_index': search_index}
 
-
 if __name__ == '__main__':
-     app.run_server(debug=True)
+   run_simple('127.0.0.1', 5000, myApp, use_reloader=True, use_debugger=True)  
+
