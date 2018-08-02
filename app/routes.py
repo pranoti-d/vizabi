@@ -1,5 +1,5 @@
 from app.server import AppServer
-from app.DashServer import DashServer
+from app.Dashserver import DashServer
 from flask import render_template, flash, redirect, url_for, request, g , current_app
 #from app import server
 from flask import g
