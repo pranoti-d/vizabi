@@ -9,6 +9,8 @@ from app.forms import SearchForm, resultForm
 from app.search import add_to_index
 from dash.dependencies import Input, State, Output
 import dash_html_components as html
+import dash
+import dash_core_components as dcc
 
 @AppServer.before_request
 def before_request():
