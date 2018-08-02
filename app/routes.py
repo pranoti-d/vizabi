@@ -52,15 +52,14 @@ def result():
     
 @AppServer.route('/visualization', methods=['GET', 'POST'])
 def visualization():
-    DashServer.layout = html.Div([
-	dcc.Location(id='url', refresh=False),
-	html.Div(id='page-content')
-	])
+    return redirect('/app/MyDashApps') 
+
+
+DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	html.Div(id='page-content')	])
     
- 
 @DashServer.callback(Output('page-content', 'children'),[Input('url', 'pathname')])
 def display_page(pathname):
-	if pathname == '/app/':
+	if pathname == '/app/MyDashApps':
 	   return dashapp1.layout	
         
      
