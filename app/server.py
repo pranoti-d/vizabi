@@ -21,10 +21,10 @@ AppServer.config.from_object(Config)
 db = SQLAlchemy(AppServer)
 babel = Babel()
 babel.init_app(Appserver)
-db.init_app(Appserver)
-Appserver.elasticsearch = Elasticsearch([Appserver.config['ELASTICSEARCH_URL']]) \
+db.init_app(AppServer)
+Appserver.elasticsearch = Elasticsearch([AppServer.config['ELASTICSEARCH_URL']]) \
        if Appserver.config['ELASTICSEARCH_URL'] else None
-migrate = Migrate(Appserver, db)
+migrate = Migrate(AppServer, db)
 
 @AppServer.route('/', methods=['GET', 'POST'])
 @AppServer.route('/index', methods=['GET', 'POST'])
