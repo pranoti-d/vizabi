@@ -7,7 +7,7 @@ from app.models import test_data_dummy_data, search_index
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-myApp = DispatcherMiddleware(server,{'/app': app})
+myApp = DispatcherMiddleware(server,{'/app': server})
 
 @server.shell_context_processor
 def make_shell_context():
