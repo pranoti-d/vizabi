@@ -1,18 +1,20 @@
 from werkzeug.wsgi import DispatcherMiddleware
 from werkzeug.serving import run_simple
-from app import server
-from app import app, db
+from server import AppServer
+from webroutes import webServer
 import sys,os
-from app.models import test_data_dummy_data, search_index
+#from app.models import test_data_dummy_data, search_index
+
+
+
+#@server.shell_context_processor
+#def make_shell_context():
+ #   return {'db': db, 'test_data_dummy_data': test_data_dummy_data, 'search_index': search_index}
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-myApp = DispatcherMiddleware(server,{'/app': server})
-
-@server.shell_context_processor
-def make_shell_context():
-    return {'db': db, 'test_data_dummy_data': test_data_dummy_data, 'search_index': search_index}
+myApp = DispatcherMiddleware(AppServer,{'/home': webServer})
 
 if __name__ == '__main__':
-   run_simple('127.0.0.1', 5000, myApp, use_reloader=True, use_debugger=True)  
+   run_simple('127.0.0.1', 5000, myApp, use_reloader=True, use_debugger=True)
 
