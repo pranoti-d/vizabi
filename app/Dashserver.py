@@ -1,6 +1,6 @@
 import dash
 import os,sys
-from server import AppServer
+from app.server import AppServer
 
 DashServer = dash.Dash(
 	name='analysis', 
