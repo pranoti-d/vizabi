@@ -17,7 +17,9 @@ from app.models import test_data_dummy_data
 
 
 data = db.session.query(test_data_dummy_data).all()
-df = pd.read_sql(data.statement, data.session.bind)
+results = db.execute(data.statement)
+fetchall = results.fetchall()
+df = pd.Dataframe(fetchall)
 
 file = pd.read_csv( "Test_Data_Dummy_Data.csv", encoding = "ISO-8859-1")
 
