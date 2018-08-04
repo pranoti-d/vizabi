@@ -8,3 +8,5 @@ import dash_core_components as dcc
 DashServer.layout = html.Div([
 html.Div('Carrefour sales Viewer')
 ])
+
+layout = DashServer.layout
