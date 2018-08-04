@@ -16,7 +16,7 @@ from app.models import test_data_dummy_data
 # In[2]:
 
 
-data = db.session.query(test_data_dummy_data).filter(test_data_dummy_data.Description == 'Number of functioning offices of scheduled commercial banks as of end of period')
+data = db.session.query(test_data_dummy_data).filter(test_data_dummy_data.Description == g.filter)
 file = pd.read_sql(data.statement, data.session.bind)
 
 #file = pd.read_csv( "Test_Data_Dummy_Data.csv", encoding = "ISO-8859-1")
