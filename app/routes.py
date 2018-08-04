@@ -16,6 +16,7 @@ import dash_core_components as dcc
 @AppServer.before_request
 def before_request():
     g.search_form = SearchForm()
+    g.filter = 'None'
     #g.locale = str(get_locale())
 
 @AppServer.route('/', methods=['GET', 'POST'])
@@ -56,6 +57,7 @@ def result():
     
 @AppServer.route('/visualization/<description>', methods=['GET', 'POST'])
 def visualization(description):
+    g.filter = description	
     return redirect(url_for('/app/MyDashApps', description=description))
 
 
@@ -65,7 +67,7 @@ DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	html.Div(i
 @DashServer.callback(Output('page-content', 'children'),[Input('url', 'pathname')])
 def display_page(pathname):
 	if pathname == '/app/MyDashApps':
-	   return dashapp1.layout(description=description)	
+	   return dashapp1.layout	
         
      
     
