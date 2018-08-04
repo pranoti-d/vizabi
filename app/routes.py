@@ -49,6 +49,7 @@ def result():
         if page > 1 else None
     if form.validate_on_submit():
         # ...
+	selection = request.form.get('selection')
         return redirect('/visualization')    
     return render_template('result.html', title=_('results'), lists=lists,
                            next_url=next_url, prev_url=prev_url, form=form)
