@@ -56,7 +56,8 @@ def result():
     
 @AppServer.route('/visualization/<description>', methods=['GET', 'POST'])
 def visualization(description):
-    return redirect('/app/MyDashApps') 
+    return redirect(url_for('/app/MyDashApps', description=description))
+
 
 
 DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	html.Div(id='page-content')	])
