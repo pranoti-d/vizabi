@@ -17,7 +17,7 @@ from flask import g
 # In[2]:
 
 
-data = db.session.query(test_data_dummy_data).filter(test_data_dummy_data.Description == g.filter)
+data = db.session.query(test_data_dummy_data).filter(test_data_dummy_data.Description == 'Number of functioning offices of scheduled commercial banks as of end of period')
 file = pd.read_sql(data.statement, data.session.bind)
 
 #file = pd.read_csv( "Test_Data_Dummy_Data.csv", encoding = "ISO-8859-1")
