@@ -16,10 +16,10 @@ from app.models import test_data_dummy_data
 # In[2]:
 
 
-data = db.session.query(test_data_dummy_data).all()
+file = db.session.query(test_data_dummy_data).all()
 
 
-file = pd.read_csv( "Test_Data_Dummy_Data.csv", encoding = "ISO-8859-1")
+#file = pd.read_csv( "Test_Data_Dummy_Data.csv", encoding = "ISO-8859-1")
 
 file.iloc[:,14:50] = file.iloc[:,14:50].apply(lambda x : x.astype('float'))
 
