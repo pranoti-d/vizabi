@@ -49,13 +49,13 @@ def result():
         if page > 1 else None
     if form.validate_on_submit():
         #...
-        return redirect('/visualization')    
+        return redirect('/visualization/<description>')    
     return render_template('result.html', title=_('results'), lists=lists,
                            next_url=next_url, prev_url=prev_url, form=form)
     
     
-@AppServer.route('/visualization', methods=['GET', 'POST'])
-def visualization():
+@AppServer.route('/visualization/<description>', methods=['GET', 'POST'])
+def visualization(description):
     return redirect('/app/MyDashApps') 
 
 
