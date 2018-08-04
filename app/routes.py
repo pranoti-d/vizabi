@@ -48,7 +48,7 @@ def result():
     prev_url = url_for('result', q=g.search_form.q.data, page=page - 1) \
         if page > 1 else None
     if form.validate_on_submit():
-        # ...
+        ...
 	selection = request.form.get('selection')
         return redirect('/visualization')    
     return render_template('result.html', title=_('results'), lists=lists,
