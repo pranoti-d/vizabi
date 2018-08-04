@@ -11,7 +11,6 @@ import plotly.graph_objs as go
 from flask import Flask, render_template
 from app.server import db
 from app.models import test_data_dummy_data
-from flask import g
 
 
 # In[2]:
