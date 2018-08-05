@@ -70,7 +70,7 @@ DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	dcc.Input(
 def display_page(pathname, filter):
     if pathname is None:
 	return dashapp1.layout(filter)
-else:
+    else:
 	return dashapp1.layout(filter)	
 	
 	   	
