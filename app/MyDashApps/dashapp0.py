@@ -101,24 +101,20 @@ DashServer.layout = html.Div([
                      multi=True
 
                              ),
-
-         ], 
-       
-        html.Div(
-            [
-                html.Button(
+                 
+                  html.Button(
                     'Button1',
                     id='btn_1',
                     type='submit'
                 )
-            ]
-         ),
 
+         ], 
+       
          className='row'
 
         ),
 
-    
+  
   
 
 ], className='ten columns offset-by-one')    
