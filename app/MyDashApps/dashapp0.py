@@ -85,7 +85,7 @@ DashServer.layout = html.Div([
              html.Label('What would you like to visualize?'),
 
                  dcc.Dropdown(
-
+                    id = 'app-1-dropdown', 
                     options=[
 
                         {'label': 'Economy', 'value': 'NYC'},
@@ -123,5 +123,9 @@ DashServer.layout = html.Div([
 
 layout = DashServer.layout
 
-    
+@app.callback(
+    Output('app-1-display-value', 'children'),
+    [Input('app-1-dropdown', 'value')])
+def display_value(value):
+    return 'You have selected "{}"'.format(value)    
 
