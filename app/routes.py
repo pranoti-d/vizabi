@@ -70,8 +70,8 @@ DashServer.layout = html.Div([dcc.Location(id='url', refresh=False),dcc.Input(id
 			      dcc.Link('Navigate to "/app/MyDashApps"', href='/app/MyDashApps'), html.Br(), html.Div(id='page-content')	]
 
 @DashServer.callback(Output('page-content', 'children'),[Input('url', 'pathname')],[State('description', 'filter')])
-def display_page('pathname',filter):
-    if filter is None:
+def display_page(pathname,filter):
+    if pathname is None:
        return dashapp1.layout(filter)
     else:
        return dashapp1.layout(filter)
