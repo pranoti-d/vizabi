@@ -58,8 +58,8 @@ def result():
 @AppServer.route('/visualization/<description>', methods=['GET', 'POST'])
 def visualization(description):
     g.filter = description	
-    #return redirect(url_for('/app/MyDashApps', description=description))
-    return redirect('/app/MyDashApps/<description>') 	
+    return redirect(url_for('/app/MyDashApps', description=description))
+    #return redirect('/app/MyDashApps') 	
 
 
 
