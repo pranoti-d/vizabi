@@ -63,16 +63,16 @@ def visualization(description):
 
 
 
-DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	dcc.Input(id='description', type='text'),
-			      dcc.Link('Navigate to "/app/MyDashApps"', href='/app/MyDashApps'), html.Br(), html.Div(id='page-content')	])
-    
-@DashServer.callback(Output('page-content', 'children'),[Input('url', 'search')], [State('description', 'filter')])
-def display_page(search, filter):
-    if search is None:
-       return dashapp1.layout(filter)
-    else:
-       return dashapp1.layout(filter)
-	
+#DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	dcc.Input(id='description', type='text'),
+#			      dcc.Link('Navigate to "/app/MyDashApps"', href='/app/MyDashApps'), html.Br(), html.Div(id='page-content')	])
+
+DashServer.layout = html.Div([	dcc.Input(id='description', type='text'),
+			      dcc.Link('Navigate to "/app/MyDashApps"', href='/app/MyDashApps'), html.Br(), html.Div(id='page-content')	]
+
+@DashServer.callback(Output('page-content', 'children'),[State('description', 'filter')])
+def display_page(filter):
+    return dashapp1.layout(filter)
+    	
 	   	
         
      
