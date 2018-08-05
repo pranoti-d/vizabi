@@ -64,7 +64,7 @@ def visualization(description):
 
 DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	dcc.Input(id='description', type='text'), html.Div(id='page-content')	])
     
-@DashServer.callback(Output('page-content', 'children'),[Input('url', 'pathname')], [Input('description', 'filter')])
+@DashServer.callback(Output('page-content', 'children'),[Input('url', 'pathname')], [State('description', 'filter')])
 def display_page(pathname, filter):
 	if pathname == '/app/MyDashApps':
 	   return dashapp1.layout(filter=filter)	
