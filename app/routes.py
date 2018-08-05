@@ -59,7 +59,7 @@ def result():
 def visualization(description):
     g.filter = description	
     #return redirect(url_for('/app/MyDashApps', description=description))
-    return redirect('/app/MyDashApps',description=description) 	
+    return redirect('/app/MyDashApps/<description>') 	
 
 
 
