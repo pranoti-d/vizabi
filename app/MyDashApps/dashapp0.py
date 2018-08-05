@@ -103,6 +103,16 @@ DashServer.layout = html.Div([
                              ),
 
          ], 
+       
+        html.Div(
+            [
+                html.Button(
+                    'Button1',
+                    id='btn_1',
+                    type='submit'
+                )
+            ]
+         ),
 
          className='row'
 
