@@ -7,7 +7,8 @@ from flask_babel import _, get_locale
 from app.models import test_data_dummy_data, search_index
 from app.forms import SearchForm, resultForm
 from app.search import add_to_index
-from app.MyDashApps import dashapp1
+#from app.MyDashApps import dashapp1
+from app import _dash-routes
 from dash.dependencies import Input, State, Output
 import dash_html_components as html
 import dash
@@ -58,20 +59,20 @@ def result():
 @AppServer.route('/visualization/<description>', methods=['GET', 'POST'])
 def visualization(description):
     g.filter = description	
-    return redirect(url_for('/app/MyDashApps', description=description))
+    return redirect(url_for('/app/_dash-routes', description=description))
     #return redirect('/visualization') 	
 
 
 
 DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	dcc.Input(id='description', type='text'),
-			      dcc.Link('Navigate to "/app/MyDashApps"', href='/app/MyDashApps'), html.Br(), html.Div(id='page-content')	])
+			      dcc.Link('Navigate to "/app/_dash-routes"', href='/app/_dash-routes'), html.Br(), html.Div(id='page-content')	])
     
 @DashServer.callback(Output('page-content', 'children'),[Input('url', 'pathname')], [State('description', 'filter')])
 def display_page(pathname, filter):
     if pathname is None:
-       return dashapp1.layout(filter)
+       return _dash-routes.layout(filter)
     else:
-       return dashapp1.layout(filter)
+       return _dash-routes.layout(filter)
 	
 	   	
         
