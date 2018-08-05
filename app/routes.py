@@ -68,7 +68,7 @@ DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	dcc.Input(
 
 @DashServer.callback(Output('page-content', 'children'),[Input('url', 'pathname')])
 def display_page(pathname):
-    if pathname == '/app/MyDashApps':
+    #if pathname == '/app/MyDashApps':
        return dashapp1.layout
     	
 	   	
