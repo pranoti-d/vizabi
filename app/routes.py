@@ -22,12 +22,13 @@ def before_request():
 @AppServer.route('/', methods=['GET', 'POST'])
 @AppServer.route('/index', methods=['GET', 'POST'])
 def index():
-    form = SearchForm()
-    g.search_form = SearchForm()
-    if form.validate_on_submit():
-        ...
-        return redirect('/result')
-    return render_template('search.html', title='Search', form=form)
+    #form = SearchForm()
+    #g.search_form = SearchForm()
+    #if form.validate_on_submit():
+    #    ...
+    #    return redirect('/result')
+    #return render_template('search.html', title='Search', form=form)
+    return redirect('/app/MyDashApps') 	
 
 @AppServer.route('/login', methods = ['POST', 'GET'])
 def login():
