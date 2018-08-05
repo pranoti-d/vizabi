@@ -63,7 +63,7 @@ def visualization(description):
 
 
 
-DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	dcc.Input(id='description', type='text', value = description),
+DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	dcc.Input(id='description', type='text'),
 			      dcc.Link('Navigate to "/app/MyDashApps"', href='/app/MyDashApps'), html.Br(), html.Div(id='page-content')	])
     
 @DashServer.callback(Output('page-content', 'children'),[Input('url', 'pathname')], [State('description', 'filter')])
