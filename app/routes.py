@@ -7,7 +7,7 @@ from flask_babel import _, get_locale
 from app.models import test_data_dummy_data, search_index
 from app.forms import SearchForm, resultForm
 from app.search import add_to_index
-from app.MyDashApps import dashapp1
+from app.MyDashApps import dashapp0
 from dash.dependencies import Input, State, Output
 import dash_html_components as html
 import dash
