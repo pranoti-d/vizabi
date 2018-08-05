@@ -71,7 +71,10 @@ DashServer.layout = html.Div([	dcc.Input(id='description', type='text'),
 
 @DashServer.callback(Output('page-content', 'children'),[State('description', 'filter')])
 def display_page(filter):
-    return dashapp1.layout(filter)
+    if filter is None:
+       return dashapp1.layout(filter)
+    else:
+       return dashapp1.layout(filter)
     	
 	   	
         
