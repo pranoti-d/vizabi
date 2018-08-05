@@ -58,7 +58,7 @@ def result():
 @AppServer.route('/visualization/<description>', methods=['GET', 'POST'])
 def visualization(description):
     g.filter = description	
-    return redirect(url_for('/app/MyDashApps', description=description))
+    return redirect(url_for('/visualization/<description>', description=description))
 
 
 
@@ -66,7 +66,7 @@ DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	dcc.Input(
     
 @DashServer.callback(Output('page-content', 'children'),[Input('url', 'pathname')], [State('description', 'filter')])
 def display_page(pathname, filter):
-	if pathname == '/app/MyDashApps':
+	if pathname == '/visualization/<description>':
 	   return dashapp1.layout	
         
      
