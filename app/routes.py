@@ -31,7 +31,7 @@ def index():
 
 @AppServer.route('/login', methods = ['POST', 'GET'])
 def login():
-c    return render_template('index_1.html', title='Home')
+    return render_template('index_1.html', title='Home')
 
 @AppServer.route('/search', methods=['GET', 'POST'])
 def search():
