@@ -58,11 +58,12 @@ def result():
 @AppServer.route('/visualization/<description>', methods=['GET', 'POST'])
 def visualization(description):
     g.filter = description	
-    return redirect(url_for('/visualization', description=description))
+    #return redirect(url_for('/visualization', description=description))
+    return redirect('/visualization') 	
 
 
 
-DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	dcc.Input(id='description', type='text'), html.Div(id='page-content')	])
+DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	dcc.Input(id='description', type='text', value = g.filter), html.Div(id='page-content')	])
     
 @DashServer.callback(Output('page-content', 'children'),[Input('url', 'pathname')], [State('description', 'filter')])
 def display_page(pathname, filter):
