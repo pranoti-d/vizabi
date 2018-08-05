@@ -31,7 +31,7 @@ def index():
 
 @AppServer.route('/login', methods = ['POST', 'GET'])
 def login():
-    return render_template('index_1.html', title='Home')
+c    return render_template('index_1.html', title='Home')
 
 @AppServer.route('/search', methods=['GET', 'POST'])
 def search():
@@ -58,23 +58,18 @@ def result():
 @AppServer.route('/visualization/<description>', methods=['GET', 'POST'])
 def visualization(description):
     g.filter = description	
-    return redirect(url_for('/app/MyDashApps', description=description))
-    #return redirect('/visualization') 	
+    #return redirect(url_for('/app/MyDashApps', description=description))
+    return redirect('/app/MyDashApps') 	
 
 
 
-#DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	dcc.Input(id='description', type='text'),
-#			      dcc.Link('Navigate to "/app/MyDashApps"', href='/app/MyDashApps'), html.Br(), html.Div(id='page-content')	])
+DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	dcc.Input(id='description', type='text'),
+			      dcc.Link('Navigate to "/app/MyDashApps"', href='/app/MyDashApps'), html.Br(), html.Div(id='page-content')	])
 
-DashServer.layout = html.Div([dcc.Location(id='url', refresh=False),dcc.Input(id='description', type='text'),
-			      dcc.Link('Navigate to "/app/MyDashApps"', href='/app/MyDashApps'), html.Br(), html.Div(id='page-content')	]
-
-@DashServer.callback(Output('page-content', 'children'),[Input('url', 'pathname')],[State('description', 'filter')])
-def display_page(pathname,filter):
-    if pathname is None:
-       return dashapp1.layout(filter)
-    else:
-       return dashapp1.layout(filter)
+@DashServer.callback(Output('page-content', 'children'),[Input('url', 'pathname')])
+def display_page(pathname):
+if pathname == '/lib/MyDashApps':
+   return dashapp1.layout
     	
 	   	
         
