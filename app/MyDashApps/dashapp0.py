@@ -123,7 +123,7 @@ DashServer.layout = html.Div([
 
 layout = DashServer.layout
 
-@DashServe.callback(
+@DashServer.callback(
     Output('app-1-display-value', 'children'),
     [Input('app-1-dropdown', 'value')])
 def display_value(value):
