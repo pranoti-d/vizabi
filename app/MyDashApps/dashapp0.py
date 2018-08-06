@@ -119,10 +119,10 @@ DashServer.layout = html.Div([
 
 layout = DashServer.layout
 
-@DashServer.callback(
-    Output('page-content1', 'children'),
-     [Input('btn_1', 'n_clicks')])
-def update_output(n_clicks):
-    return redirect('/app/MyDashApps/dashapp1')
+#@DashServer.callback(
+#    Output('page-content1', 'children'),
+#     [Input('btn_1', 'n_clicks')])
+#def update_output(n_clicks):
+#    return redirect('/app/MyDashApps/dashapp1')
    
 
