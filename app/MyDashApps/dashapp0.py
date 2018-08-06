@@ -124,7 +124,7 @@ DashServer.layout = html.Div([
 layout = DashServer.layout
 
 @DashServer.callback(
-    Output('page-content', 'children'),
+    Output('page-content1', 'children'),
     [Input('app-1-dropdown', 'value')])
 def display_value(value):
     return 'You have selected "{}"'.format(value)    
