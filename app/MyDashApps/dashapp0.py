@@ -11,6 +11,7 @@ import plotly.graph_objs as go
 from flask import Flask, render_template
 from app.server import db
 from app.models import test_data_dummy_data
+from app.MyDashApps import dashapp1
 
 
 
@@ -125,10 +126,10 @@ layout = DashServer.layout
 
 @DashServer.callback(
     Output('page-content1', 'children'),
-     [Input('btn_1', 'n_clicks')])
+     [Input('btn_1', 'n_clicks')],
+     [Input('/app/MyDashApps/dashapp1', 'pathname')])
 def update_output(n_clicks):
-    return u'''
-        The Button has been pressed {} times,
-        Input 1 is 
-        and Input 2 is '''.format(n_clicks)  
+    if pathname == '/app/MyDashApps/dashapp1':
+       return dashapp1.layout
+   
 
