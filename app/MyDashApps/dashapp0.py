@@ -125,10 +125,10 @@ layout = DashServer.layout
 
 @DashServer.callback(
     Output('page-content1', 'children'),
-    [Input('app-1-dropdown', 'value')],  [Input('btn_1', 'n_clicks')])
-def update_output(n_clicks, value):
+     [Input('btn_1', 'n_clicks')])
+def update_output(n_clicks):
     return u'''
         The Button has been pressed {} times,
-        Input 1 is "{}",
-        and Input 2 is '''.format(n_clicks, value,)  
+        Input 1 is 
+        and Input 2 is '''.format(n_clicks)  
 
