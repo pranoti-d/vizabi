@@ -102,7 +102,7 @@ DashServer.layout = html.Div([
                      multi=True
 
                              ),
-                 dcc.Input(id='input-1-state', type='text', value='/app/MyDashApps/dashapp1'),
+                  dcc.Link('Go to App 2', href='/app/MyDashApps/dashapp1'),
                  
                  html.Button(
                     'Button1',
@@ -127,10 +127,9 @@ layout = DashServer.layout
 
 @DashServer.callback(
     Output('page-content1', 'children'),
-     [Input('btn_1', 'n_clicks')],
-     [State('input-1-state', 'value')])
-def update_output(n_clicks,input1):
-    if input1 == '/app/MyDashApps/dashapp1':
-       return dashapp1.layout
+     [Input('btn_1', 'n_clicks')])
+def update_output(n_clicks):
+    if n_clicks > 0 :
+       return redirect('/app/MyDashApps/dashapp1')
    
 
