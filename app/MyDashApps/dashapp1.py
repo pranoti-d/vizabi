@@ -333,7 +333,7 @@ DashServer.layout = html.Div([
              html.Label('What would you like to visualize?'),
 
                  dcc.Dropdown(
-
+                    id='fliter',
                     options=[
 
                         {'label': 'Economy', 'value': 'NYC'},
