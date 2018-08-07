@@ -70,7 +70,7 @@ DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	dcc.Input(
 
 @DashServer.callback(Output('page-content', 'children'),[Input('url', 'pathname')])
 def display_page(pathname):
-    if pathnam.startswith('//app'):
+    if pathname.startswith('/app/'):
        des = pathname.split('/')[-1]	
        return dashapp0.layout(description=des)
     elif pathname == '/app/MyDashApps/dashapp1':
