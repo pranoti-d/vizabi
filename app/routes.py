@@ -66,17 +66,17 @@ def visualization(description):
 
 
 DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	dcc.Input(id='description', type='text'),
-			        html.Div(id='intermediate-value', style={'display': 'none'}),
+			        html.Div(id='intermediate-value1', style={'display': 'none'}),
 			        html.Div(id='page-content')])
 
-@DashServer.callback(Output('intermediate-value', 'children'),[Input('url', 'pathname')])
+@DashServer.callback(Output('intermediate-value1', 'children'),[Input('url', 'pathname')])
 def clean_data(value):
     pathname = str(pathname)
     des = pathname.split('/')[-1]
     return des	
 
 
-@DashServer.callback(Output('page-content', 'children'),[Input('url', 'pathname')], [Input('intermediate-value', 'children')])
+@DashServer.callback(Output('page-content', 'children'),[Input('url', 'pathname')], [Input('intermediate-value1', 'children')])
 def display_page(pathname):
     pathname = str(pathname) 	
     if pathname.startswith('/app/'):
