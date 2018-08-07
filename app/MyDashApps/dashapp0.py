@@ -102,7 +102,7 @@ DashServer.layout = html.Div([
                      multi=True
 
                              ),
-                  dcc.Link('Search', href='/app/MyDashApps/dashapp0'),
+                  dcc.Link('Search', href='/app/MyDashApps/dashapp1'),
                     
                   #dcc.Graph(id='graph'),
           
