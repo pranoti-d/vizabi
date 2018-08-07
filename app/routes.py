@@ -74,7 +74,8 @@ DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	dcc.Input(
 def display_page(pathname, filter):
     pathname = str(pathname) 	
     if pathname.startswith('/app/'):
-       filter = pathname.split('/')[-1]	
+       #filter = pathname.split('/')[-1]
+       filter = 'NYC'
        return dashapp1.layout(filter=filter)
     elif pathname == '/app/MyDashApps/dashapp1':
          return dashapp1.layout
