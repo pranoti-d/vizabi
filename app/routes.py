@@ -23,13 +23,13 @@ def before_request():
 @AppServer.route('/', methods=['GET', 'POST'])
 @AppServer.route('/index', methods=['GET', 'POST'])
 def index():
-    #form = SearchForm()
-    #g.search_form = SearchForm()
-    #if form.validate_on_submit():
-    #    ...
-    #    return redirect('/result')
-    #return render_template('search.html', title='Search', form=form)
-    return redirect('/app/MyDashApps') 	
+    form = SearchForm()
+    g.search_form = SearchForm()
+    if form.validate_on_submit():
+        ...
+        return redirect('/result')
+    return render_template('search.html', title='Search', form=form)
+    #return redirect('/app/MyDashApps') 	
 
 @AppServer.route('/login', methods = ['POST', 'GET'])
 def login():
@@ -60,8 +60,8 @@ def result():
 @AppServer.route('/visualization/<description>', methods=['GET', 'POST'])
 def visualization(description):
     g.filter = description	
-    return redirect(url_for('/app/MyDashApps', description=description))
-    #return redirect('/app/MyDashApps') 	
+    #return redirect(url_for('/app/MyDashApps', description=description))
+    return redirect('/app/MyDashApps/<description>') 	
 
 
 
@@ -70,8 +70,9 @@ DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	dcc.Input(
 
 @DashServer.callback(Output('page-content', 'children'),[Input('url', 'pathname')])
 def display_page(pathname):
-    if pathname == '/app/MyDashApps':
-       return dashapp0.layout
+    if pathnam.startswith('//app'):
+       des = pathname.split('/')[-1]	
+       return dashapp0.layout(description=des)
     elif pathname == '/app/MyDashApps/dashapp1':
          return dashapp1.layout
     elif pathname == '/app/MyDashApps/dashapp0':
