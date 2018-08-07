@@ -76,7 +76,7 @@ def clean_data(value):
     return des	
 
 
-@DashServer.callback(Output('page-content', 'children'),[Input('url', 'pathname')], [Input('intermediate-value1', 'children')])
+@DashServer.callback(Output('page-content', 'children'),[Input('url', 'pathname'),Input('intermediate-value1', 'children')])
 def display_page(pathname):
     pathname = str(pathname) 	
     if pathname.startswith('/app/'):
