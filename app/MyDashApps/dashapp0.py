@@ -86,7 +86,7 @@ DashServer.layout = html.Div([
              html.Label('What would you like to visualize?'),
 
                  dcc.Dropdown(
-                    id = 'app-1-dropdown', 
+                    id = 'dropdown', 
                     options=[
 
                         {'label': 'Economy', 'value': 'NYC'},
@@ -102,7 +102,11 @@ DashServer.layout = html.Div([
                      multi=True
 
                              ),
-                  dcc.Link('Search', href='/app/MyDashApps/dashapp1')
+                  dcc.Link('Search', href='/app/MyDashApps/dashapp0'),
+                    
+                  html.Div(id='output'),
+          
+                  html.Div(id='intermediate-value', style={'display': 'none'})
 
          ], 
        
@@ -116,13 +120,20 @@ DashServer.layout = html.Div([
 ], className='ten columns offset-by-one')    
 
 
+@app.callback(Output('intermediate-value', 'children'), [Input('dropdown', value)])
+def clean_data(value):
+     # some expensive clean data step
+     cleaned_df = value
+
+     # more generally, this line would be
+     # json.dumps(cleaned_df)
+     return cleaned_df.to_json(date_format='iso', orient='split')
 
 layout = DashServer.layout
 
-#@DashServer.callback(
-#    Output('page-content1', 'children'),
-#     [Input('btn_1', 'n_clicks')])
-#def update_output(n_clicks):
-#    return redirect('/app/MyDashApps/dashapp1')
+@app.callback(Output('output', 'children'), [Input('intermediate-value', 'children')])
+def update_output(jsonified_cleaned_data):
+    dff = pd.read_json(jsonified_cleaned_data, orient='split')
+    return u'Input 1 is "{}" '.format(dff)
    
 
