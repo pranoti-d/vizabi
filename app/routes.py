@@ -70,7 +70,7 @@ DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	dcc.Input(
 			              html.Div(id='page-content')])
 
 
-@app.callback(Output('signal', 'children'), [Input('url', 'search')])
+@DashServer.callback(Output('signal', 'children'), [Input('url', 'search')])
 def compute_value():
     # compute value and send a signal when done
     des = str(search) 
