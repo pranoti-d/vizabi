@@ -120,7 +120,7 @@ DashServer.layout = html.Div([
 ], className='ten columns offset-by-one')    
 
 
-@app.callback(Output('intermediate-value', 'children'), [Input('dropdown', value)])
+@DashServer.callback(Output('intermediate-value', 'children'), [Input('dropdown', value)])
 def clean_data(value):
      # some expensive clean data step
      cleaned_df = value
