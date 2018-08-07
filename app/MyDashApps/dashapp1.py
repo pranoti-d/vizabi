@@ -490,11 +490,11 @@ DashServer.layout = html.Div([
 
     dash.dependencies.Input('chart_type', 'value'),
     
-    dash.dependencies.Input('intermediate-value', 'children')    
+    dash.dependencies.Input('signal', 'children')    
     ])
 
-def update_output(x_axis, y_axis, chart_type):
-
+def update_output(x_axis, y_axis, chart_type, signal):
+  
     dataPanda = select_chart(x_axis,y_axis,chart_type)
 
     layout = create_layout(x_axis,y_axis)
