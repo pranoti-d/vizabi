@@ -131,7 +131,7 @@ def clean_data(value):
 
 layout = DashServer.layout
 
-@app.callback(Output('output', 'children'), [Input('intermediate-value', 'children')])
+@DashServer.callback(Output('output', 'children'), [Input('intermediate-value', 'children')])
 def update_output(jsonified_cleaned_data):
     dff = pd.read_json(jsonified_cleaned_data, orient='split')
     return u'Input 1 is "{}" '.format(dff)
