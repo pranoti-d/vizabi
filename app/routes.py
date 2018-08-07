@@ -74,7 +74,7 @@ def display_page(pathname):
        return dashapp0.layout
     elif pathname == '/app/MyDashApps/dashapp1':
          return dashapp1.layout
-    elif pathname == '/app/MyDashApps/dashapp1':
+    elif pathname == '/app/MyDashApps/dashapp0':
          return dashapp0.layout
     else:
         return '404'	
