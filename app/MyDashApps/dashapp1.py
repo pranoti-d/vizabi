@@ -489,7 +489,8 @@ DashServer.layout = html.Div([
     dash.dependencies.Input('y_axis', 'value'),
 
     dash.dependencies.Input('chart_type', 'value'),
-
+    
+    dash.dependencies.Input('intermediate-value', 'children')    
     ])
 
 def update_output(x_axis, y_axis, chart_type):
