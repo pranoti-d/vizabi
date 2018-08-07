@@ -16,14 +16,14 @@ from app.models import test_data_dummy_data
 # In[2]:
 
 
-data = db.session.query(test_data_dummy_data).filter(test_data_dummy_data.Description == 'Number of functioning offices of scheduled commercial banks as of end of period')
-file = pd.read_sql(data.statement, data.session.bind)
+#data = db.session.query(test_data_dummy_data).filter(test_data_dummy_data.Description == 'Number of functioning offices of scheduled commercial banks as of end of period')
+#file = pd.read_sql(data.statement, data.session.bind)
 
 #file = pd.read_csv( "Test_Data_Dummy_Data.csv", encoding = "ISO-8859-1")
 
-file.iloc[:,15:51] = file.iloc[:,15:51].apply(lambda x : x.astype('float'))
+#file.iloc[:,15:51] = file.iloc[:,15:51].apply(lambda x : x.astype('float'))
 
-file.iloc[:,15:51] = file.iloc[:,15:51].apply(lambda x : round(x, 2))
+#file.iloc[:,15:51] = file.iloc[:,15:51].apply(lambda x : round(x, 2))
 
 
 
@@ -34,7 +34,7 @@ file.iloc[:,15:51] = file.iloc[:,15:51].apply(lambda x : round(x, 2))
 
 
 
-def select_chart(x_axis,y_axis,chart_type) :
+def select_chart(x_axis,y_axis,chart_type, file) :
 
     data_chart = file
 
@@ -494,8 +494,12 @@ DashServer.layout = html.Div([
     ])
 
 def update_output(x_axis, y_axis, chart_type, signal):
-  
-    dataPanda = select_chart(x_axis,y_axis,chart_type)
+    
+    data = db.session.query(test_data_dummy_data).filter(test_data_dummy_data.Description == 'Number of functioning offices of scheduled commercial banks as of end of period')
+    file = pd.read_sql(data.statement, data.session.bind)
+    file.iloc[:,15:51] = file.iloc[:,15:51].apply(lambda x : x.astype('float'))
+    file.iloc[:,15:51] = file.iloc[:,15:51].apply(lambda x : round(x, 2))
+    dataPanda = select_chart(x_axis,y_axis,chart_type, file)
 
     layout = create_layout(x_axis,y_axis)
 
