@@ -70,12 +70,21 @@ DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	dcc.Input(
 			              html.Div(id='page-content')])
 
 
-@DashServer.callback(Output('page-content', 'children'),[Input('url', 'pathname'),Input('description', 'filter')])
+@app.callback(Output('signal', 'children'), [Input('url', 'search')])
+def compute_value():
+    # compute value and send a signal when done
+    des = str(search) 
+    filter = des.split('/')[-1]
+    #global_store(value)
+    return filter
+
+
+@DashServer.callback(Output('page-content', 'children'),[Input('url', 'pathname'),Input('signal', 'filter')])
 def display_page(pathname, filter):
     pathname = str(pathname) 	
     if pathname.startswith('/app/'):
        #filter = pathname.split('/')[-1]
-       filter = 'NYC'
+       #filter = compute_value()
        return dashapp1.layout
     elif pathname == '/app/MyDashApps/dashapp1':
          return dashapp1.layout
