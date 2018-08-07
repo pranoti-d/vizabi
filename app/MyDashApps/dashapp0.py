@@ -104,9 +104,9 @@ DashServer.layout = html.Div([
                              ),
                   dcc.Link('Search', href='/app/MyDashApps/dashapp0'),
                     
-                  dcc.Graph(id='graph'),
+                  #dcc.Graph(id='graph'),
           
-                  html.Table(id='table'),
+                  #html.Table(id='table'),
           
                   html.Div(id='intermediate-value', style={'display': 'none'})
 
@@ -131,20 +131,4 @@ def clean_data(value):
      # json.dumps(cleaned_df)
      return cleaned_df.to_json(date_format='iso', orient='split')
 
-@DashServer.callback(Output('graph', 'figure'), [Input('intermediate-value', 'children')])
-def update_graph(jsonified_cleaned_data):
-
-    # more generally, this line would be
-    # json.loads(jsonified_cleaned_data)
-    dff = pd.read_json(jsonified_cleaned_data, orient='split')
-
-    figure = create_figure(dff)
-    return figure
-
-@DashServer.callback(Output('table', 'children'), [Input('intermediate-value', 'children')])
-def update_table(jsonified_cleaned_data):
-    dff = pd.read_json(jsonified_cleaned_data, orient='split')
-    table =  create_table(dff)
-    return table
-   
 
