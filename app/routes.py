@@ -73,7 +73,7 @@ def display_page(pathname):
     pathname = str(pathname) 	
     if pathname.startswith('/app/'):
        des = pathname.split('/')[-1]	
-       return dashapp0.layout(description=des)
+       return dashapp1.layout(description=des)
     elif pathname == '/app/MyDashApps/dashapp1':
          return dashapp1.layout
     elif pathname == '/app/MyDashApps/dashapp0':
