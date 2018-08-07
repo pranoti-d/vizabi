@@ -65,9 +65,9 @@ def visualization(description):
 
 
 
-DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	dcc.Input(id='description', type='text'),
+DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	dcc.Input(id='description', type='text'),			      
+                                html.Div(id='signal', style={'display': 'none'}),
 			              html.Div(id='page-content')])
-
 
 
 @DashServer.callback(Output('page-content', 'children'),[Input('url', 'pathname'),Input('description', 'filter')])
@@ -76,7 +76,7 @@ def display_page(pathname, filter):
     if pathname.startswith('/app/'):
        #filter = pathname.split('/')[-1]
        filter = 'NYC'
-       return dashapp1.layout(filter=filter)
+       return dashapp1.layout
     elif pathname == '/app/MyDashApps/dashapp1':
          return dashapp1.layout
     elif pathname == '/app/MyDashApps/dashapp0':
