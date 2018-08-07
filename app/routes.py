@@ -71,7 +71,7 @@ DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	dcc.Input(
 
 
 @DashServer.callback(Output('signal', 'children'), [Input('url', 'search')])
-def compute_value():
+def compute_value(search):
     # compute value and send a signal when done
     des = str(search) 
     filter = des.split('/')[-1]
