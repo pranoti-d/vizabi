@@ -74,9 +74,9 @@ DashServer.layout = html.Div([	dcc.Location(id='url', refresh=False),	dcc.Input(
 def compute_value(search):
     # compute value and send a signal when done
     des = str(search) 
-    #filter = des.split('/')[-1]
+    filter = des.split('/')[-1]
     #global_store(value)
-    filter = 'hello world'
+    #filter = 'hello world'
     return filter
 
 
