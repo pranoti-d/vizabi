@@ -3,6 +3,7 @@ import dash_html_components as html
 from dash.dependencies import Input, State, Output
 import dash
 import dash_core_components as dcc
+import urllib
 
 DashServer.layout = html.Div([
 html.Div(id='graph-1')
@@ -13,6 +14,7 @@ html.Div(id='graph-1')
 def update_value_1(value, pathname):
     des = str(pathname) 
     filter = des.split('/')[-1]
+    filter = urllib.parse.unquote(filter)
     return html.Div([
         html.H3('You are on page {}'.format(filter)) ])
 
