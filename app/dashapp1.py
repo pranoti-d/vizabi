@@ -1,4 +1,4 @@
-from app.Dasshserver import DashServer
+from app.Dashserver import DashServer
 import dash_html_components as html
 
 DashServer.layout = html.Div([
