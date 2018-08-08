@@ -15,7 +15,7 @@ def update_value_1(value):
     # the data in `global_store` has already been computed
     # by the `compute_value` callback and the result is stored
     # in the global redis cached
-    return  return html.Div([
+    return html.Div([
         html.H3('You are on page {}'.format(value))
     ]
 
