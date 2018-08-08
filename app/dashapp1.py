@@ -16,7 +16,6 @@ def update_value_1(value):
     # by the `compute_value` callback and the result is stored
     # in the global redis cached
     return html.Div([
-        html.H3('You are on page {}'.format(value))
-    ]
+        html.H3('You are on page {}'.format(value)) ])
 
 layout = DashServer.layout
