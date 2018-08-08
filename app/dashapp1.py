@@ -16,3 +16,5 @@ def update_value_1(value):
     # by the `compute_value` callback and the result is stored
     # in the global redis cached
     return 'You have selected "{}"'.format(value)
+
+layout = DashServer.layout
