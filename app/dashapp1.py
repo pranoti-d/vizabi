@@ -12,4 +12,4 @@ def update_value_1(value):
     # the data in `global_store` has already been computed
     # by the `compute_value` callback and the result is stored
     # in the global redis cached
-    return return 'You have selected "{}"'.format(value)
+    return 'You have selected "{}"'.format(value)
