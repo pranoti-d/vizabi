@@ -14,6 +14,6 @@ def update_value_1(value, pathname):
     des = str(pathname) 
     filter = des.split('/')[-1]
     return html.Div([
-        html.H3('You are on page {}'.format(des)) ])
+        html.H3('You are on page {}'.format(filter)) ])
 
 layout = DashServer.layout
