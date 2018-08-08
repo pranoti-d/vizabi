@@ -1,5 +1,8 @@
 from app.Dashserver import DashServer
 import dash_html_components as html
+from dash.dependencies import Input, State, Output
+import dash
+import dash_core_components as dcc
 
 DashServer.layout = html.Div([
 html.Div(id='graph-1')
