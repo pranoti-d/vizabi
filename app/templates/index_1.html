@@ -25,6 +25,15 @@
       }
 
     </style>
+    
+<link rel="stylesheet" href="//s3-eu-west-1.amazonaws.com/static.gapminderdev.org/vizabi/develop/vizabi.css">
+<link rel="stylesheet" href="//s3-eu-west-1.amazonaws.com/static.gapminderdev.org/bubblechart.css">
+
+<script src="//d3js.org/d3.v4.min.js"></script>
+<script src="//s3-eu-west-1.amazonaws.com/static.gapminderdev.org/vizabi/develop/vizabi.min.js"></script>
+<script src="//s3-eu-west-1.amazonaws.com/static.gapminderdev.org/preview/master/assets/vendor/js/vizabi-ws-reader/vizabi-ws-reader.js"></script>
+<script src="//s3-eu-west-1.amazonaws.com/static.gapminderdev.org/systema-globalis/master/ConfigBubbleChart.js"></script>
+<script src="//s3-eu-west-1.amazonaws.com/static.gapminderdev.org/bubblechart.js"></script>
 
   </head>
 
@@ -79,6 +88,25 @@
     <!-- Bootstrap core JavaScript -->
 <!--    <script src="vendor/jquery/jquery.min.js"></script>  -->
 <!--    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>  -->
+  
+  <div id="placeholder" width="600px" height="400px"></div>
+
+<script>
+var wsReader = WsReader.WsReader.getReader();
+Vizabi.Reader.extend("waffle", wsReader);
+
+ConfigBubbleChart.locale = {
+  "id": "en",
+  "filePath": "//s3-eu-west-1.amazonaws.com/static.gapminderdev.org/assets/translation/"
+};
+
+ConfigBubbleChart.data = {
+  "reader": "waffle",
+  "path": "https://waffle-server.gapminder.org/api/ddf/ql"
+};
+
+Vizabi("BubbleChart", document.getElementById("placeholder"), ConfigBubbleChart);
+</script>
 
   </body>
 
